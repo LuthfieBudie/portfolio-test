@@ -34,6 +34,7 @@ body {
   margin-left: 250px;
   padding: 20px;
   transition: 0.3s;
+  min-height: 2000px;
 }
 
 /* Button */
