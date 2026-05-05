@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #263b4e;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+/* Container gambar */
+.hero {
+  height: 100vh; /* full layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+/* Gambar */
+#hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+/* Konten bawah */
+.content {
+  height: 1500px;
+  padding: 20px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  color: white;
+  font-weight: bold;
+
+  animation: bounce 1.5s infinite;
+}
+
+/* Animasi naik turun */
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+.box-merah {
+  width: 100%;
+  height: 370px;
+  background-color: rgba(0, 48, 102, 0.582);
+
+  margin: -100px auto 0; /* ini kunci */
+  border-radius: 20px;
+
+  position: relative;
+  z-index: 1;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.btn-download {
+  position: absolute;
+  top: 20px;       /* jarak dari atas */
+  right: 20px;     /* pojok kanan */
+
+  padding: 10px 20px;
+  background-color: white;
+  color: #000000;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.btn-download:hover {
+  transform: translateY(-3px);
+}

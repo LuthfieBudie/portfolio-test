@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="hero">
+    <img src="images/foto.png" id="hero-img">
+    <a href="files/CV_LuthfieBudie.pdf" download class="btn-download">
+    Download CV</a>
+
+    <div class="scroll-indicator" id="scroll-text">
+      ↓ Scroll Here
+    </div>
+  </div>
+  <div class="box-merah">
+
+  </div>
+
+  <div class="content">
+    <p>Scroll ke bawah...</p>
+    <p>Ini contoh isi website portofolio.</p>
+  </div>
+
+  <!-- SCRIPT DI BAWAH -->
+  <script>
+    const scrollText = document.getElementById("scroll-text");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        scrollText.style.opacity = "0";
+      } else {
+        scrollText.style.opacity = "1";
+      }
+    });
+  </script>
+
+</body>
+</html>
