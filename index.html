@@ -6,12 +6,12 @@
   <title>LuthfieBudie_Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
- 
 <body>
+
   <video autoplay muted loop playsinline class="bg-video">
     <source src="files/typo1.mp4" type="video/mp4">
   </video>
@@ -21,366 +21,279 @@
     <img class="modalcontent" id="fullimg">
   </div>
 
-<!-- Sidebar -->
-<div id="sidebar" class="sidebar">
-  <div class="sidebaritem">
-    <div class="photo">
+  <!-- Hamburger toggle button -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebaritem">
+      <div class="photo">
         <img src="files/PhotoProfile.png" alt="Profile">
         <p class="menuname">Luthfie Budie Andika</p>
-    </div>
-    <hr class="line">
-  <a href="#menu"><i class="fa-solid fa-house"></i></i>Menu</a>
-  <a href="#interest"><i class="fa-solid fa-info"></i></i>About Me</a>
-  <a href="#skills"><i class="fa-solid fa-screwdriver-wrench"></i>Skills & Tools</a>  
-  <a href="#projects"><i class="fa-solid fa-diagram-project"></i>Projects</a>
-  <a href="#experience"><i class="fa-solid fa-briefcase"></i>Work Experience</a>  
-  <a href="#sertificate"><i class="fa-solid fa-award"></i>Sertificate</a>
-  <a href="#contact"><i class="fa-solid fa-address-book"></i>Contact</a>
-  </div>
-    
-</div>
-
-<!-- Content -->
-<div id="content" class="content">
-  <div class="box" id="menu">
-    <img src="files/menu/menu4.png" class="boximg">
-    <div class="boxcontent">
-      <span class="boxtext"><span class="datahighlight">Data - Driven</span> Solutions <br> with <span class="creativehighlight">Creative Visual</span> <br> Support</span>
-      <span class="boxdescription">Hi! I'm Luthfie Budie, a fresh graduate in tech with a strong focus on software development and data-driven solutions, complemented by experience in visual content production. Passionate about problem-solving and continuously improving technical skills through real-world projects.</span>
-    </div>
-    <div class="menubtn">
-      <a class="btn" href="/iles/CV_LuthfieBudie.pdf">Download CV</a>
-      <a class="btnwa"><i class="fa-brands fa-whatsapp"></i><span>Let's Talk</span></a>
+      </div>
+      <hr class="sidebar-line">
+      <nav>
+        <a href="#menu" class="nav-link"><i class="fa-solid fa-house"></i>Menu</a>
+        <a href="#interest" class="nav-link"><i class="fa-solid fa-info"></i>About Me</a>
+        <a href="#skills" class="nav-link"><i class="fa-solid fa-screwdriver-wrench"></i>Skills & Tools</a>
+        <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i>Projects</a>
+        <a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i>Work Experience</a>
+        <a href="#sertificate" class="nav-link"><i class="fa-solid fa-award"></i>Certificate</a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-address-book"></i>Contact</a>
+      </nav>
     </div>
   </div>
 
-  <section >
-    <h2 class="interest" id="interest">About Me</h2>
+  <!-- Content -->
+  <div id="content" class="content">
 
-   <div class="about-wrapper">
-    <div class="text">
-        <p class="abttex">
-        Computer Science graduate with strong motivation to develop professional skills and gain practical experience. Experienced in robotics projects, digital image processing, and AI implementation through a thesis project. Proficient in English, Microsoft Office (Word, PowerPoint, Excel), Adobe tools (Photoshop, Premiere Pro, After Effects, Illustrator), and SQL for data analysis.
-    </p>
-    <div class="whatidoforyou">
-        <p class="whatido">What I Do -</p>
-        <p class="foryou">For You</p>
-    </div>
-</div>
-
-    <div class="box-container">
-
-      <div class="card">
-        <div class="cardlogo">
-          <img src="files/about/analyst.png" alt="">
+    <!-- Hero -->
+    <div class="box" id="menu">
+      <img src="files/menu/menu4.png" class="boximg" alt="Hero background">
+      <div class="hero-inner">
+        <h1 class="boxtext">
+          <span class="datahighlight">Data - Driven</span> Solutions<br>
+          with <span class="creativehighlight">Creative Visual</span><br>
+          Support
+        </h1>
+        <p class="boxdescription">Hi! I'm Luthfie Budie, a fresh graduate in tech with a strong focus on software development and data-driven solutions, complemented by experience in visual content production. Passionate about problem-solving and continuously improving technical skills through real-world projects.</p>
+        <div class="menubtn">
+          <a class="btn" href="files/CV_LuthfieBudie.pdf">Download CV</a>
+          <a class="btnwa" href="#contact"><i class="fa-brands fa-whatsapp"></i><span>Let's Talk</span></a>
         </div>
-        <span class="cardtitle">Data Analysis & Data - <br> Driven Insights</span>
-        <span class="carddescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</span>
       </div>
+    </div>
 
-      <div class="card">
-        <div class="cardlogo">
-          <img src="files/about/robotic.png" alt="">
+    <!-- About Me -->
+    <section id="interest">
+      <h2 class="section-title right-align">About Me</h2>
+      <div class="about-wrapper">
+        <div class="about-text">
+          <p class="abttex">
+            Computer Science graduate with strong motivation to develop professional skills and gain practical experience. Experienced in robotics projects, digital image processing, and AI implementation through a thesis project. Proficient in English, Microsoft Office (Word, PowerPoint, Excel), Adobe tools (Photoshop, Premiere Pro, After Effects, Illustrator), and SQL for data analysis.
+          </p>
+          <div class="whatidoforyou">
+            <p class="whatido">What I Do —</p>
+            <p class="foryou">For You</p>
+          </div>
         </div>
-        <span class="cardtitle">Robotics & Intelligent Systems Development</span>
-        <span class="carddescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</span>
+        <div class="box-container">
+          <div class="card">
+            <div class="cardlogo"><img src="files/about/analyst.png" alt="Data Analysis icon"></div>
+            <span class="cardtitle">Data Analysis &amp; Data-Driven Insights</span>
+            <span class="carddescription">Aspiring Data Analyst with foundational knowledge in data collection, cleaning, transformation, and exploratory data analysis (EDA), passionate about turning data into meaningful insights through visualization.</span>
+          </div>
+          <div class="card">
+            <div class="cardlogo"><img src="files/about/robotic.png" alt="Robotics icon"></div>
+            <span class="cardtitle">Robotics &amp; Intelligent Systems Development</span>
+            <span class="carddescription">Developing robotic prototypes, involving the integration of computer vision (object detection and tracking), sensor systems, feedback control, motion control, and basic decision-making.</span>
+          </div>
+          <div class="card">
+            <div class="cardlogo"><img src="files/about/uiux.png" alt="UI/UX icon"></div>
+            <span class="cardtitle">UI/UX Design (Interface &amp; Experience)</span>
+            <span class="carddescription">Design with UI/UX principles, including basic user research, user flows, wireframing, and prototyping, with an interest in creating intuitive and user-friendly interfaces.</span>
+          </div>
+          <div class="card">
+            <div class="cardlogo"><img src="files/about/video.png" alt="Video icon"></div>
+            <span class="cardtitle">Video Editing &amp; Visual Content Production</span>
+            <span class="carddescription">Detailed in timing &amp; pacing, chroma keying, footage selection, and audio enhancement (noise reduction, balancing, SFX, BGM). Familiar with basic animation and content optimization for social media platforms.</span>
+          </div>
+          <div class="card">
+            <div class="cardlogo"><img src="files/about/photo.png" alt="Photo icon"></div>
+            <span class="cardtitle">Photo Editing &amp; Image Processing</span>
+            <span class="carddescription">Photo Editing with a focus on Photo Manipulation, Thumbnail Design, and Visual Content Creation, including Logo Design, Click-optimized Compositions, Banner &amp; Advertisement Design, and Image Compositing.</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="cardlogo">
-          <img src="files/about/uiux.png" alt="">
-        </div>
-        <span class="cardtitle">UI/UX Design (Interface & Experience)</span>
-        <span class="carddescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</span>
+    <!-- Skills -->
+    <section class="skills" id="skills">
+      <h2 class="section-title center-align">Skills &amp; Tools</h2>
+      <div class="skilltext">
+        <p class="line1"></p>
+        <p class="skillstext">Continuously Improving My Skills</p>
+        <p class="line1"></p>
       </div>
-
-      <div class="card">
-        <div class="cardlogo">
-          <img src="files/about/video.png" alt="">
-        </div>
-        <span class="cardtitle">Video Editing & Visual Content Production</span>
-        <span class="carddescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</span>
+      <div class="skillslist">
+        <a class="skillsitem"><img src="files/logo/html.png" alt="HTML"><span class="skillsitemtext">HTML</span></a>
+        <a class="skillsitem"><img src="files/logo/css.png" alt="CSS"><span class="skillsitemtext">CSS</span></a>
+        <a class="skillsitem"><img src="files/logo/python.png" alt="Python"><span class="skillsitemtext">Python</span></a>
+        <a class="skillsitem"><img src="files/logo/mysql.png" alt="MySQL"><span class="skillsitemtext">MySQL</span></a>
+        <a class="skillsitem"><img src="files/logo/Arduino.png" alt="Arduino"><span class="skillsitemtext">Arduino</span></a>
+        <a class="skillsitem"><img src="files/logo/github.png" alt="Github"><span class="skillsitemtext">Github</span></a>
+        <a class="skillsitem"><img src="files/logo/vscode.png" alt="VS Code"><span class="skillsitemtext">VS Code</span></a>
+        <a class="skillsitem"><img src="files/logo/spreadsheeet.png" alt="Spreadsheets"><span class="skillsitemtext">Spreadsheets</span></a>
+        <a class="skillsitem"><img src="files/logo/word.png" alt="Word"><span class="skillsitemtext">MS Word</span></a>
+        <a class="skillsitem"><img src="files/logo/excel.png" alt="Excel"><span class="skillsitemtext">MS Excel</span></a>
+        <a class="skillsitem"><img src="files/logo/ppt.png" alt="PowerPoint"><span class="skillsitemtext">PowerPoint</span></a>
+        <a class="skillsitem"><img src="files/logo/visio.png" alt="Visio"><span class="skillsitemtext">MS Visio</span></a>
+        <a class="skillsitem"><img src="files/logo/tableau.png" alt="Tableau"><span class="skillsitemtext">Tableau</span></a>
+        <a class="skillsitem"><img src="files/logo/powerbi.png" alt="Power BI"><span class="skillsitemtext">Power BI</span></a>
+        <a class="skillsitem"><img src="files/logo/canva1.png" alt="Canva"><span class="skillsitemtext">Canva</span></a>
+        <a class="skillsitem"><img src="files/logo/ae.png" alt="After Effects"><span class="skillsitemtext">After Effects</span></a>
+        <a class="skillsitem"><img src="files/logo/ai.png" alt="Illustrator"><span class="skillsitemtext">Illustrator</span></a>
+        <a class="skillsitem"><img src="files/logo/pr.png" alt="Premiere Pro"><span class="skillsitemtext">Premiere Pro</span></a>
+        <a class="skillsitem"><img src="files/logo/ps.png" alt="Photoshop"><span class="skillsitemtext">Photoshop</span></a>
+        <a class="skillsitem"><img src="files/logo/filmora.png" alt="Filmora"><span class="skillsitemtext">Filmora</span></a>
+        <a class="skillsitem"><img src="files/logo/figma.png" alt="Figma"><span class="skillsitemtext">Figma</span></a>
       </div>
+    </section>
 
-      <div class="card">
-        <div class="cardlogo">
-          <img src="files/about/photo.png" alt="">
-        </div>
-        <span class="cardtitle">Photo Editing & Image Processing</span>
-        <span class="carddescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</span>
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title center-align">Projects</h2>
+      <div class="skilltext">
+        <p class="line1"></p>
+        <p class="skillstext">Some Of My Latest Work</p>
+        <p class="line1"></p>
       </div>
-
-    </div>
-
-  </div>
-</section>
-  
-
-  <section class="skills" id="skills">
-    <h2>Skills & Tools</h2>
-    <div class="skilltext">
-      <p class="line1"></p>
-      <p class="skillstext">Continously Improving My Skills</p>
-      <p class="line1"></p>
-    </div>
-    <div class="skillslist">
-      <a class="skillsitem">
-        <img src="files/logo/html.png" alt="">
-        <span class="skillsitemtext">HTML</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/css.png" alt="">
-        <span class="skillsitemtext">CSS</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/python.png" alt="">
-        <span class="skillsitemtext">Python</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/mysql.png" alt="">
-        <span class="skillsitemtext">MySQL</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/Arduino.png" alt="">
-        <span class="skillsitemtext">Arduino</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/github.png" alt="">
-        <span class="skillsitemtext">Github</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/vscode.png" alt="">
-        <span class="skillsitemtext">Visual Studio Code</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/spreadsheeet.png" alt="">
-        <span class="skillsitemtext">Spreadsheets</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/word.png" alt="">
-        <span class="skillsitemtext">Microsoft Word</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/excel.png" alt="">
-        <span class="skillsitemtext">Microsoft Excel</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/ppt.png" alt="">
-        <span class="skillsitemtext">Microsoft Powerpoint</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/visio.png" alt="">
-        <span class="skillsitemtext">Microsoft Visio</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/tableau.png" alt="">
-        <span class="skillsitemtext">Tableau</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/powerbi.png" alt="">
-        <span class="skillsitemtext">Power Bi</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/canva1.png" alt="">
-        <span class="skillsitemtext">Canva</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/ae.png" alt="">
-        <span class="skillsitemtext">Adobe After Effects</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/ai.png" alt="">
-        <span class="skillsitemtext">Adobe Illustrator</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/pr.png" alt="">
-        <span class="skillsitemtext">Adobe Premiere Pro</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/ps.png" alt="">
-        <span class="skillsitemtext">Adobe Photoshop</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/filmora.png" alt="">
-        <span class="skillsitemtext">Filmora</span>
-      </a>
-
-      <a class="skillsitem">
-        <img src="files/logo/figma.png" alt="">
-        <span class="skillsitemtext">Figma</span>
-      </a>
-
-    </div>
-    <!--
-    <div class="skilltext1">
-      <p class="line1"></p>
-      <p class="skillstext">Software And Tools</p>
-      <p class="line2"></p>
-    </div>
-    <div class="skillslist">
-      <a class="skillsitem"></a>
-      <a class="skillsitem"></a>
-      <a class="skillsitem"></a>
-      <a class="skillsitem"></a>
-      <a class="skillsitem"></a>
-      <a class="skillsitem"></a>
-      <a class="skillsitem"></a>
-    </div> 
-    -->
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="skilltext">
-      <p class="line"></p>
-      <p class="skillstext">Some Of My Latest Work</p>
-      <p class="line1"></p>
-    </div>
-    <div class="projectlist">
-
-      <div class="projectitem">
-        <div class="projectimage" onclick="openImage('files/Projects/Project1.png')"> <img src="files/Projects/Project1.png" alt="">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <span class="projectcategory">AI development</span>
+      <div class="projectlist">
+        <div class="projectitem">
+          <div class="projectimage" onclick="openImage('files/Projects/Project1.png')">
+            <img src="files/Projects/Project1.png" alt="A Star Line Follower Car">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <span class="projectcategory">AI Development</span>
+          </div>
+          <p class="projectname">A Star Line Follower Car</p>
+          <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/A-Star-Algorithm-Smart-Car', '_blank')"><i class="fa-brands fa-github"></i><span class="seeproject">See Project</span></button>
         </div>
-        <p class="projectname">A Star Line Follower Car</p>
-        <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/A-Star-Algorithm-Smart-Car', '_blank')"><i class="fa-brands fa-github"></i><span class="seeproject">See Project</span></button>
+        <div class="projectitem">
+          <div class="projectimage" onclick="openImage('files/Projects/Project2.png')">
+            <img src="files/Projects/Project2.png" alt="Smart Helmet Anti Sleep">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <span class="projectcategory">Computer Vision &amp; Robotics</span>
+          </div>
+          <p class="projectname">Smart Helmet Anti Sleep</p>
+          <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Smart-Anti-Sleep-Helmet', '_blank')"><i class="fa-brands fa-github"></i><span class="seeproject">See Project</span></button>
+        </div>
+        <div class="projectitem">
+          <div class="projectimage" onclick="openImage('files/Projects/Project3.png')">
+            <img src="files/Projects/Project3.png" alt="Payroll Information System">
+            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <span class="projectcategory">Web Development</span>
+          </div>
+          <p class="projectname">Payroll Information System</p>
+          <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/GAJI_Payroll_Information_System', '_blank')"><i class="fa-brands fa-github"></i><span class="seeproject">See Project</span></button>
+        </div>
       </div>
-      
-      <div class="projectitem">
-        <div class="projectimage" onclick="openImage('files/Projects/project2.png')"> <img src="files/Projects/Project2.png" alt="">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <span class="projectcategory">Computer Vision & Robotics</span>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title center-align">Work Experience</h2>
+      <div class="experience-container">
+        <div class="experiencelist1">
+          <div class="experiencelogo"><img src="files/Kominfo.png" alt="Kominfo logo"></div>
+          <div class="experiencetext">
+            <p class="experiencerole">IT Support &amp; Data Analyst</p>
+            <p class="experiencecompany">Kominfo</p>
+          </div>
+          <div class="experiencedate">Oct 2023 – Jan 2024</div>
         </div>
-        <p class="projectname">Smart Helmet Anti Sleep</p>
-        <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Smart-Anti-Sleep-Helmet', '_blank')"><i class="fa-brands fa-github"></i><span class="seeproject">See Project</span></button>
       </div>
-      
-      <div class="projectitem">
-        <div class="projectimage" onclick="openImage('files/Projects/Project3.png')"> <img src="files/Projects/Project3.png" alt="">
-          <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <span class="projectcategory">Web Development</span>
-        </div>
-        <p class="projectname">Payroll Information System</p>
-        <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/GAJI_Payroll_Information_System', '_blank')"><i class="fa-brands fa-github"></i><span class="seeproject">See Project</span></button>
+    </section>
+
+    <!-- Certificate -->
+    <section id="sertificate">
+      <h2 class="section-title center-align">Certificate</h2>
+      <div class="skilltext">
+        <p class="line1"></p>
+        <p class="skillstext">Some Of My Latest Certificate</p>
+        <p class="line1"></p>
       </div>
+      <div class="sertificatelist">
+        <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Certificate Junior</span></a>
+        <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Certificate Junior</span></a>
+        <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificateimage"></p><span class="sertificatename">Certificate Junior</span></a>
+        <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Certificate Junior</span></a>
+        <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Certificate Junior</span></a>
+        <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Certificate Junior</span></a>
+      </div>
+    </section>
 
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="experiencelist1">
-      <div class="experiencelogo"><img src="files/Kominfo.png" alt=""></div>
-      <div class="experiencetext">
-        <p class="experiencerole">IT Support & Data Analyst</p>
-        <p class="experiencecompany">Kominfo</p>
-        <div class="experiencedate">
-          Oct 2023 - Jan 2024
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title center-align">Contact</h2>
+      <div class="ContactUs">
+        <p class="Contacttext">Feel free to reach out — I'd love to connect and discuss opportunities.</p>
+        <div class="contactlist">
+          <a class="contactitem" href="mailto:LuthfieBudieAndika@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="title">EMAIL</span>
+            <span class="desc">LuthfieBudieAndika@gmail.com</span>
+          </a>
+          <a class="contactitem" href="https://linkedin.com/in/luthfiebudie" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+            <span class="title">LINKEDIN</span>
+            <span class="desc">Luthfie Budie</span>
+          </a>
+          <a class="contactitem" href="https://github.com/LuthfieBudie" target="_blank">
+            <i class="fa-brands fa-github"></i>
+            <span class="title">GITHUB</span>
+            <span class="desc">LuthfieBudie</span>
+          </a>
+          <a class="contactitem" href="https://wa.me/6285277848442" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="title">WHATSAPP</span>
+            <span class="desc">085277848442</span>
+          </a>
+          <a class="contactitem">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="title">ADDRESS</span>
+            <span class="desc">Jaka Setia, Bekasi Selatan, Jawa Barat</span>
+          </a>
         </div>
-      </div>    
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section id="sertificate">
-    <h2>Certificate</h2>
-    <div class="skilltext">
-      <p class="line"></p>
-      <p class="skillstext">Some Of My Latest Certificate</p>
-      <p class="line1"></p>
-    </div>
-    <div class="sertificatelist">
-      <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Serifikat Junior</span></a>
-      <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Serifikat Junior</span></a>
-      <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Serifikat Junior</span></a>
-      <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Serifikat Junior</span></a>
-      <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Serifikat Junior</span></a>
-      <a class="sertificatecard"><p class="sertificateimage"></p><span class="sertificatename">Serifikat Junior</span></a>
-    </div>
-  </section>
+  </div><!-- end content -->
 
-  <section id="contact">
-    <h2>Contact</h2>
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const content = document.getElementById('content');
 
-    <div class="ContactUs">
-        <p class="Contacttext">
-        Sample text. Click to select the text box. Click again or double click <br> to start editing the text. 
-    </p>
-    <div class="contactlist"> 
-        <a class="contactitem"><i class="fa-solid fa-envelope"></i><span class="title">EMAIL</span><span class="desc">LuthfieBudieAndika@gmail.com</span></a>
-        <a class="contactitem"><i class="fa-brands fa-linkedin"></i><span class="title">LINKEDIN</span><span class="desc">Luthfie Budie</span></a>
-        <a class="contactitem"><i class="fa-brands fa-github"></i><span class="title">GITHUB</span><span class="desc">LuthfieBudie</span></a>
-        <a class="contactitem"><i class="fa-brands fa-whatsapp"></i><span class="title">WHATSAPP</span><span class="desc">085277848442</span></a>
-        <a class="contactitem"><i class="fa-solid fa-location-dot"></i><span class="title">ADDRESS</span><span class="desc">Jaka Setia, Bekasi Selatan,<br> Jawa Barat</span></a>
-    </div>
-</div>
-</section>
-</div>
-
-<script>
-  function toggleSidebar() {
-    let sidebar = document.getElementById("sidebar");
-    let content = document.getElementById("content");
-
-    if (sidebar.style.width === "250px") {
-      sidebar.style.width = "0";    
-      content.style.marginLeft = "0";
-    } else {
-      sidebar.style.width = "250px";
-      content.style.marginLeft = "250px";
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('active');
     }
-  }
-</script>
-<script>
-function openImage(src) {
-  const modal = document.getElementById("imagemodal");
-  const img = document.getElementById("fullimg");
-
-  modal.style.display = "flex";
-  img.src = src;
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById("imagemodal");
-  const closeBtn = document.querySelector(".close");
-
-  if (closeBtn) {
-    closeBtn.onclick = function() {
-      modal.style.display = "none";
-    };
-  }
-
-  modal.addEventListener("click", function(e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
     }
-  });
 
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-      modal.style.display = "none";
+    hamburgerBtn.addEventListener('click', () => {
+      sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+    });
+    overlay.addEventListener('click', closeSidebar);
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 900) closeSidebar();
+      });
+    });
+
+    function openImage(src) {
+      const modal = document.getElementById("imagemodal");
+      const img = document.getElementById("fullimg");
+      modal.style.display = "flex";
+      img.src = src;
     }
-  });
-});
-</script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("imagemodal");
+      const closeBtn = document.querySelector(".close");
+      if (closeBtn) closeBtn.onclick = () => modal.style.display = "none";
+      modal.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.style.display = "none"; });
+    });
+  </script>
 </body>
 </html>
