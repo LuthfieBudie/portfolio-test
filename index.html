@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>LuthfieBudie_Portfolio</title>
+  <!-- TIDAK pakai viewport meta yang restrict zoom -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
   <!-- Background Video -->
@@ -21,18 +20,8 @@
   <!-- Image Modal -->
   <div id="imagemodal" class="imagemodal">
     <span class="close">&times;</span>
-    <img class="modalcontent" id="fullimg">
+    <img class="modalcontent" id="fullimg" alt="">
   </div>
-
-  <!-- Hamburger Button (mobile only) -->
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- Sidebar Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
@@ -42,13 +31,13 @@
         <p class="menuname">Luthfie Budie Andika</p>
       </div>
       <hr class="line">
-      <a href="#menu"       onclick="closeMobileSidebar()"><i class="fa-solid fa-house"></i>Menu</a>
-      <a href="#interest"   onclick="closeMobileSidebar()"><i class="fa-solid fa-info"></i>About Me</a>
-      <a href="#skills"     onclick="closeMobileSidebar()"><i class="fa-solid fa-screwdriver-wrench"></i>Skills &amp; Tools</a>
-      <a href="#projects"   onclick="closeMobileSidebar()"><i class="fa-solid fa-diagram-project"></i>Projects</a>
-      <a href="#experience" onclick="closeMobileSidebar()"><i class="fa-solid fa-briefcase"></i>Work Experience</a>
-      <a href="#sertificate"onclick="closeMobileSidebar()"><i class="fa-solid fa-award"></i>Certificate</a>
-      <a href="#contact"    onclick="closeMobileSidebar()"><i class="fa-solid fa-address-book"></i>Contact</a>
+      <a href="#menu"><i class="fa-solid fa-house"></i>Menu</a>
+      <a href="#interest"><i class="fa-solid fa-info"></i>About Me</a>
+      <a href="#skills"><i class="fa-solid fa-screwdriver-wrench"></i>Skills &amp; Tools</a>
+      <a href="#projects"><i class="fa-solid fa-diagram-project"></i>Projects</a>
+      <a href="#experience"><i class="fa-solid fa-briefcase"></i>Work Experience</a>
+      <a href="#sertificate"><i class="fa-solid fa-award"></i>Certificate</a>
+      <a href="#contact"><i class="fa-solid fa-address-book"></i>Contact</a>
     </div>
   </div>
 
@@ -60,8 +49,8 @@
       <img src="files/menu/menu4.png" class="boximg" alt="">
       <div class="boxcontent">
         <span class="boxtext">
-          <span class="datahighlight">Data - Driven</span> Solutions <br>
-          with <span class="creativehighlight">Creative Visual</span> <br>
+          <span class="datahighlight">Data - Driven</span> Solutions<br>
+          with <span class="creativehighlight">Creative Visual</span><br>
           Support
         </span>
         <span class="boxdescription">
@@ -69,7 +58,9 @@
         </span>
         <div class="menubtn">
           <a class="btn" href="files/CV_LuthfieBudie.pdf" target="_blank">Download CV</a>
-          <a class="btnwa" href="https://wa.me/6285277848442" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>Let's Talk</span></a>
+          <a class="btnwa" href="https://wa.me/6285277848442" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i><span>Let's Talk</span>
+          </a>
         </div>
       </div>
     </div>
@@ -87,7 +78,6 @@
             <p class="foryou">For You</p>
           </div>
         </div>
-
         <div class="box-container">
           <div class="card">
             <div class="cardlogo"><img src="files/about/analyst.png" alt=""></div>
@@ -97,22 +87,22 @@
           <div class="card">
             <div class="cardlogo"><img src="files/about/robotic.png" alt=""></div>
             <span class="cardtitle">Robotics &amp; Intelligent Systems Development</span>
-            <span class="carddescription">Developing robotic prototypes involving computer vision (object detection and tracking), sensor systems, feedback control, motion control, and basic decision-making.</span>
+            <span class="carddescription">Developing robotic prototypes involving computer vision, sensor systems, feedback control, motion control, and basic decision-making.</span>
           </div>
           <div class="card">
             <div class="cardlogo"><img src="files/about/uiux.png" alt=""></div>
             <span class="cardtitle">UI/UX Design (Interface &amp; Experience)</span>
-            <span class="carddescription">Design with UI/UX principles including basic user research, user flows, wireframing, and prototyping, with an interest in creating intuitive and user-friendly interfaces.</span>
+            <span class="carddescription">Design with UI/UX principles including user research, wireframing, and prototyping with interest in creating intuitive interfaces.</span>
           </div>
           <div class="card">
             <div class="cardlogo"><img src="files/about/video.png" alt=""></div>
             <span class="cardtitle">Video Editing &amp; Visual Content Production</span>
-            <span class="carddescription">Detailed in timing &amp; pacing, chroma keying, footage selection, and audio enhancement. Familiar with basic animation and content optimization for social media platforms.</span>
+            <span class="carddescription">Detailed in timing &amp; pacing, chroma keying, audio enhancement, and content optimization for social media platforms.</span>
           </div>
           <div class="card">
             <div class="cardlogo"><img src="files/about/photo.png" alt=""></div>
             <span class="cardtitle">Photo Editing &amp; Image Processing</span>
-            <span class="carddescription">Photo Editing focused on Photo Manipulation, Thumbnail Design, and Visual Content Creation including Logo Design, Banner &amp; Advertisement Design, and Image Compositing.</span>
+            <span class="carddescription">Photo Manipulation, Thumbnail Design, Logo Design, Banner &amp; Advertisement Design, and Image Compositing.</span>
           </div>
         </div>
       </div>
@@ -167,7 +157,7 @@
             <span class="projectcategory">AI development</span>
           </div>
           <p class="projectname">A Star Line Follower Car</p>
-          <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/A-Star-Algorithm-Smart-Car','_blank')">
+          <button class="projectbtn" onclick="event.stopPropagation();window.open('https://github.com/LuthfieBudie/A-Star-Algorithm-Smart-Car','_blank')">
             <i class="fa-brands fa-github"></i><span>See Project</span>
           </button>
         </div>
@@ -178,7 +168,7 @@
             <span class="projectcategory">Computer Vision &amp; Robotics</span>
           </div>
           <p class="projectname">Smart Helmet Anti Sleep</p>
-          <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Smart-Anti-Sleep-Helmet','_blank')">
+          <button class="projectbtn" onclick="event.stopPropagation();window.open('https://github.com/LuthfieBudie/Smart-Anti-Sleep-Helmet','_blank')">
             <i class="fa-brands fa-github"></i><span>See Project</span>
           </button>
         </div>
@@ -189,7 +179,7 @@
             <span class="projectcategory">Web Development</span>
           </div>
           <p class="projectname">Payroll Information System</p>
-          <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/GAJI_Payroll_Information_System','_blank')">
+          <button class="projectbtn" onclick="event.stopPropagation();window.open('https://github.com/LuthfieBudie/GAJI_Payroll_Information_System','_blank')">
             <i class="fa-brands fa-github"></i><span>See Project</span>
           </button>
         </div>
@@ -260,60 +250,62 @@
       </div>
     </section>
 
-  </div><!-- end .content -->
+  </div>
 
   <script>
-    /* ---- Sidebar toggle ---- */
-    const sidebar = document.getElementById('sidebar');
-    const content = document.getElementById('content');
-    const overlay = document.getElementById('sidebarOverlay');
-    const hamburger = document.getElementById('hamburger');
+    /* ============================================
+       SCALE halaman agar tampilan PC muat di HP
+       Lebar referensi PC = 1440px (sidebar 250 + konten 1190)
+       ============================================ */
+    function scaleToFit() {
+      var DESIGN_WIDTH = 1440; // lebar desain PC kamu
+      var screenW = window.innerWidth;
 
-    function isMobile() { return window.innerWidth <= 1100; }
-
-    hamburger.addEventListener('click', function () {
-      if (isMobile()) {
-        const open = sidebar.style.width === '250px';
-        sidebar.style.width = open ? '0' : '250px';
-        overlay.classList.toggle('active', !open);
+      if (screenW < DESIGN_WIDTH) {
+        var scale = screenW / DESIGN_WIDTH;
+        document.body.style.transform = 'scale(' + scale + ')';
+        document.body.style.transformOrigin = 'top left';
+        document.body.style.width = DESIGN_WIDTH + 'px';
+        // Atur tinggi wrapper agar tidak ada gap putih di bawah
+        document.body.parentElement.style.height = 'auto';
       } else {
-        const open = sidebar.style.width !== '0px' && sidebar.style.width !== '0';
-        sidebar.style.width = open ? '0' : '250px';
-        content.style.marginLeft = open ? '0' : '250px';
-      }
-    });
-
-    overlay.addEventListener('click', closeMobileSidebar);
-
-    function closeMobileSidebar() {
-      if (isMobile()) {
-        sidebar.style.width = '0';
-        overlay.classList.remove('active');
+        document.body.style.transform = '';
+        document.body.style.width = '';
       }
     }
 
-    window.addEventListener('resize', function () {
-      if (!isMobile()) {
-        overlay.classList.remove('active');
+    scaleToFit();
+    window.addEventListener('resize', scaleToFit);
+
+    /* ============================================
+       Sidebar toggle (opsional, tetap bisa di klik)
+       ============================================ */
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar');
+      var content = document.getElementById('content');
+      if (sidebar.style.width === '0px') {
         sidebar.style.width = '250px';
         content.style.marginLeft = '250px';
       } else {
         sidebar.style.width = '0';
         content.style.marginLeft = '0';
       }
-    });
+    }
 
-    /* ---- Image modal ---- */
+    /* ============================================
+       Image modal
+       ============================================ */
     function openImage(src) {
       document.getElementById('imagemodal').style.display = 'flex';
       document.getElementById('fullimg').src = src;
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      const modal = document.getElementById('imagemodal');
-      document.querySelector('.close').onclick = () => modal.style.display = 'none';
-      modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.style.display = 'none'; });
+      var modal = document.getElementById('imagemodal');
+      var closeBtn = document.querySelector('.close');
+      if (closeBtn) closeBtn.onclick = function () { modal.style.display = 'none'; };
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.style.display = 'none'; });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.style.display = 'none'; });
     });
   </script>
 
