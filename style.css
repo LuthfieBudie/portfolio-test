@@ -291,7 +291,6 @@ section h2 {
   gap: 20px; 
 }
 .card {
-  min-height: 400px;
   box-shadow: var(--card-shadow);
   border-radius: 14px; background: #fff;
   padding: 60px 18px 20px;
