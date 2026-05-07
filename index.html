@@ -22,14 +22,12 @@
     <img class="modalcontent" id="fullimg" src="" alt="Project Preview">
   </div>
 
-  <!-- Hamburger Button (mobile) -->
+  <!-- Hamburger (mobile) -->
   <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
 
-  <!-- Sidebar Overlay (mobile tap-to-close) -->
+  <!-- Sidebar Overlay -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <!-- Sidebar -->
@@ -89,44 +87,29 @@
             <p class="foryou">For You</p>
           </div>
         </div>
-
         <div class="box-container">
           <div class="card">
-            <div class="cardlogo">
-              <img src="files/about/analyst.png" alt="Data Analysis">
-            </div>
+            <div class="cardlogo"><img src="files/about/analyst.png" alt="Data Analysis"></div>
             <span class="cardtitle">Data Analysis &amp; Data-Driven Insights</span>
             <span class="carddescription">Aspiring Data Analyst with knowledge in data collection, cleaning, transformation, and EDA, passionate about turning data into meaningful insights through visualization.</span>
           </div>
-
           <div class="card">
-            <div class="cardlogo">
-              <img src="files/about/robotic.png" alt="Robotics">
-            </div>
+            <div class="cardlogo"><img src="files/about/robotic.png" alt="Robotics"></div>
             <span class="cardtitle">Robotics &amp; Intelligent Systems Development</span>
             <span class="carddescription">Developing robotic prototypes integrating computer vision, sensor systems, feedback control, motion control, and basic decision-making algorithms.</span>
           </div>
-
           <div class="card">
-            <div class="cardlogo">
-              <img src="files/about/uiux.png" alt="UI/UX">
-            </div>
+            <div class="cardlogo"><img src="files/about/uiux.png" alt="UI/UX"></div>
             <span class="cardtitle">UI/UX Design (Interface &amp; Experience)</span>
             <span class="carddescription">Design with UI/UX principles including user research, user flows, wireframing, and prototyping to create intuitive and user-friendly interfaces.</span>
           </div>
-
           <div class="card">
-            <div class="cardlogo">
-              <img src="files/about/video.png" alt="Video Editing">
-            </div>
+            <div class="cardlogo"><img src="files/about/video.png" alt="Video Editing"></div>
             <span class="cardtitle">Video Editing &amp; Visual Content Production</span>
             <span class="carddescription">Skilled in timing &amp; pacing, chroma keying, audio enhancement, and content optimization for social media platforms.</span>
           </div>
-
           <div class="card">
-            <div class="cardlogo">
-              <img src="files/about/photo.png" alt="Photo Editing">
-            </div>
+            <div class="cardlogo"><img src="files/about/photo.png" alt="Photo Editing"></div>
             <span class="cardtitle">Photo Editing &amp; Image Processing</span>
             <span class="carddescription">Focused on Photo Manipulation, Thumbnail Design, Logo Design, Banner &amp; Advertisement Design, and Image Compositing.</span>
           </div>
@@ -176,7 +159,6 @@
         <p class="line1"></p>
       </div>
       <div class="projectlist">
-
         <div class="projectitem">
           <div class="projectimage" onclick="openImage('files/Projects/Project1.png')">
             <img src="files/Projects/Project1.png" alt="A Star Line Follower Car">
@@ -190,7 +172,6 @@
             </button>
           </div>
         </div>
-
         <div class="projectitem">
           <div class="projectimage" onclick="openImage('files/Projects/Project2.png')">
             <img src="files/Projects/Project2.png" alt="Smart Helmet Anti Sleep">
@@ -204,7 +185,6 @@
             </button>
           </div>
         </div>
-
         <div class="projectitem">
           <div class="projectimage" onclick="openImage('files/Projects/Project3.png')">
             <img src="files/Projects/Project3.png" alt="Payroll Information System">
@@ -218,21 +198,23 @@
             </button>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- Work Experience -->
     <section id="experience">
       <h2>Work Experience</h2>
-      <div class="experiencelist1">
-        <div class="experiencelogo">
-          <img src="files/Kominfo.png" alt="Kominfo">
-        </div>
-        <div class="experiencetext">
-          <p class="experiencerole">IT Support &amp; Data Analyst</p>
-          <p class="experiencecompany">Kominfo</p>
-          <p class="experiencedate">Oct 2023 – Jan 2024</p>
+      <!-- wrapper untuk centre -->
+      <div class="experience-wrapper">
+        <div class="experiencelist1">
+          <div class="experiencelogo">
+            <img src="files/Kominfo.png" alt="Kominfo">
+          </div>
+          <div class="experiencetext">
+            <p class="experiencerole">IT Support &amp; Data Analyst</p>
+            <p class="experiencecompany">Kominfo</p>
+            <p class="experiencedate">Oct 2023 – Jan 2024</p>
+          </div>
         </div>
       </div>
     </section>
@@ -290,70 +272,45 @@
 
   </div><!-- end #content -->
 
-  <!-- JavaScript -->
   <script>
-    // ===== HAMBURGER / SIDEBAR TOGGLE =====
+    // ===== HAMBURGER / SIDEBAR =====
     const hamburger = document.getElementById('hamburger');
     const sidebar   = document.getElementById('sidebar');
     const overlay   = document.getElementById('sidebarOverlay');
     const navLinks  = document.querySelectorAll('.sidebar a');
 
-    function openSidebar() {
-      sidebar.classList.add('open');
-      overlay.classList.add('active');
-      hamburger.classList.add('open');
-    }
-    function closeSidebar() {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('active');
-      hamburger.classList.remove('open');
-    }
+    function openSidebar()  { sidebar.classList.add('open');    overlay.classList.add('active');    hamburger.classList.add('open'); }
+    function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); hamburger.classList.remove('open'); }
 
-    hamburger.addEventListener('click', () => {
-      sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
-    });
-
+    hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
     overlay.addEventListener('click', closeSidebar);
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) closeSidebar();
-      });
-    });
+    navLinks.forEach(l => l.addEventListener('click', () => { if (window.innerWidth <= 768) closeSidebar(); }));
 
     // ===== IMAGE MODAL =====
     function openImage(src) {
-      const modal = document.getElementById('imagemodal');
-      const img   = document.getElementById('fullimg');
-      modal.style.display = 'flex';
-      img.src = src;
+      document.getElementById('imagemodal').style.display = 'flex';
+      document.getElementById('fullimg').src = src;
     }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const modal    = document.getElementById('imagemodal');
-      const closeBtn = document.querySelector('.close');
-
-      closeBtn.onclick = () => { modal.style.display = 'none'; };
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('imagemodal');
+      document.querySelector('.close').onclick = () => modal.style.display = 'none';
       modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
       document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.style.display = 'none'; });
     });
 
-    // ===== SMOOTH ACTIVE NAV =====
+    // ===== ACTIVE NAV HIGHLIGHT =====
     const sections = document.querySelectorAll('section, .box');
     const links    = document.querySelectorAll('.sidebar a');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           links.forEach(l => l.style.color = '#ccc');
-          const id = entry.target.id;
-          const active = document.querySelector(`.sidebar a[href="#${id}"]`);
+          const active = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
           if (active) active.style.color = '#fff';
         }
       });
     }, { threshold: 0.4 });
-
-    sections.forEach(sec => observer.observe(sec));
+    sections.forEach(s => observer.observe(s));
   </script>
 
 </body>
