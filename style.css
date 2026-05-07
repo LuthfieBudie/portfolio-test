@@ -287,13 +287,14 @@ section h2 {
 .box-container {
   flex: 2 1 400px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 20px; 
 }
 .card {
+  min-height: 400px;
   box-shadow: var(--card-shadow);
   border-radius: 14px; background: #fff;
-  padding: 28px 18px 20px;
+  padding: 60px 18px 20px;
   display: flex; flex-direction: column;
   align-items: center; gap: 12px;
   transition: transform 0.25s, box-shadow 0.25s;
@@ -307,9 +308,12 @@ section h2 {
   flex-shrink: 0;
 }
 .cardlogo img { width: 50px; height: 50px; object-fit: contain; }
-.cardtitle { color: var(--accent-purple); font-weight: 700; font-size: 0.95rem; text-align: center; line-height: 1.3; }
-.carddescription { font-family: 'Open Sans', sans-serif; text-align: center; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+.cardtitle { color: var(--accent-purple); font-weight: 700; font-size: 1.125rem; text-align: center; line-height: 1.3; }
 
+.carddescription { font-family: 'Open Sans', sans-serif; text-align: center; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+.carddescription {
+  padding: 10px;
+}
 
 /* ===== SKILLS — 7 per baris ===== */
 .skills { padding: var(--section-pad); }
