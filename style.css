@@ -1,4 +1,3 @@
-/* ===== CSS VARIABLES ===== */
 :root {
   --sidebar-width: 260px;
   --accent-blue: #65bbec;
@@ -11,7 +10,6 @@
   --section-pad: 80px 100px 60px;
 }
 
-/* ===== RESET & BASE ===== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -25,7 +23,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== BACKGROUND VIDEO ===== */
 .bg-video {
   position: fixed;
   top: 0; left: 0;
@@ -34,7 +31,6 @@ body {
   z-index: -1;
 }
 
-/* ===== IMAGE MODAL ===== */
 .imagemodal {
   display: none;
   position: fixed;
@@ -59,7 +55,6 @@ body {
 }
 .close:hover { opacity: 0.7; }
 
-/* ===== HAMBURGER (mobile only) ===== */
 .hamburger {
   display: none;
   position: fixed;
@@ -88,7 +83,9 @@ body {
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ===== SIDEBAR ===== */
+
+
+
 .sidebar {
   height: 100%;
   width: var(--sidebar-width);
@@ -139,7 +136,6 @@ body {
 .sidebar a i { width: 22px; text-align: center; font-size: 1rem; flex-shrink: 0; }
 .sidebar a:hover { background-color: #2a2a2a; color: #fff; }
 
-/* ===== OVERLAY (mobile tap-to-close) ===== */
 .sidebar-overlay {
   display: none;
   position: fixed; inset: 0;
@@ -148,14 +144,28 @@ body {
 }
 .sidebar-overlay.active { display: block; }
 
-/* ===== MAIN CONTENT ===== */
 .content {
   margin-left: var(--sidebar-width);
   transition: margin-left var(--transition);
   min-height: 100vh;
 }
+.scrollindicator { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; opacity: 0.85; transition: opacity 0.4s, transform 0.4s; animation: scrollFloat 2s ease-in-out infinite; z-index: 99; }
+.scrollindicator.hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(12px); }
+.scrollindicator:hover { opacity: 1; }
+.scrolllabel { font-family: 'Open Sans', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; font-weight: 600; }
+.scrollmouse { width: 22px; height: 34px; border: 1.5px solid #fff; border-radius: 11px; display: flex; justify-content: center; padding-top: 6px; }
+.scrollwheel { width: 3px; height: 6px; background: #fff; border-radius: 2px; animation: scrollWheel 2s ease-in-out infinite; }
+.scrollarrows { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.scrollarrow { width: 8px; height: 8px; border-right: 1.5px solid #fff; border-bottom: 1.5px solid #fff; transform: rotate(45deg); animation: arrowFade 2s ease-in-out infinite; }
+.scrollarrow:nth-child(2) { animation-delay: 0.2s; opacity: 0.6; }
+.scrollarrow:nth-child(3) { animation-delay: 0.4s; opacity: 0.3; }
+@keyframes scrollFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+@keyframes scrollWheel { 0%{transform:translateY(0);opacity:1} 80%{transform:translateY(8px);opacity:0} 100%{transform:translateY(0);opacity:0} }
+@keyframes arrowFade { 0%,100%{opacity:0.2} 50%{opacity:1} }
 
-/* ===== HERO ===== */
+
+
+
 .box {
   position: relative;
   overflow: hidden;
@@ -221,7 +231,6 @@ body {
 }
 .btnwa:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
 
-/* ===== SECTIONS — 100px side padding ===== */
 section { padding: var(--section-pad); background: #fff; }
 section:nth-child(even) { background: #fafafa; }
 section h2 {
@@ -231,7 +240,6 @@ section h2 {
   margin-bottom: 10px;
 }
 
-/* ===== DIVIDER ROW ===== */
 .skilltext, .skilltext1 {
   display: flex;
   align-items: center;
@@ -257,7 +265,9 @@ section h2 {
   font-size: 0.9rem;
 }
 
-/* ===== ABOUT ME — title rata kanan ===== */
+
+
+
 #interest { padding: var(--section-pad); }
 .interest {
   font-family: 'Poppins', sans-serif;
@@ -315,7 +325,9 @@ section h2 {
   padding: 10px;
 }
 
-/* ===== SKILLS — 7 per baris ===== */
+
+
+
 .skills { padding: var(--section-pad); }
 .skills h2 { text-align: center; margin-bottom: 0; }
 .skillslist {
@@ -339,7 +351,9 @@ section h2 {
 .skillsitem img { width: 90px; height: 90px; object-fit: contain; }
 .skillsitemtext { font-family: 'Open Sans', sans-serif; font-size: 0.72rem; text-align: center; color: #444; }
 
-/* ===== PROJECTS — centre ===== */
+
+
+
 #projects { padding: var(--section-pad); }
 #projects h2 { text-align: center; }
 .projectlist {
@@ -386,26 +400,32 @@ section h2 {
 }
 .projectbtn:hover { background: #333; }
 
-/* ===== EXPERIENCE — centre ===== */
+
+
+
 #experience { padding: var(--section-pad); }
 #experience h2 { margin-bottom: 30px; text-align: center; }
-.experience-wrapper { display: flex; justify-content: center; }
-.experiencelist1 {
-  display: flex; align-items: center; gap: 20px;
-  background: #fff; border-radius: 14px;
-  padding: 28px 32px;
-  box-shadow: var(--card-shadow);
-  width: 100%; max-width: 680px;
-  flex-wrap: wrap;
-}
-.experiencelogo { width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; }
+.expriencewrapper { display: flex; justify-content: center; }
+.experiencecard { display: flex; align-items: flex-start; gap: 20px; background: #fff; border-radius: 14px; padding: 28px 32px; box-shadow: var(--card-shadow); width: 100%; max-width: 720px; flex-wrap: wrap; position: relative; overflow: hidden; }
+.experiencecard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent-purple); border-radius: 0; }
+.experiencelogo { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0; border-radius: 10px; background: #f9fafb; padding: 8px; }
 .experiencelogo img { width: 100%; height: 100%; object-fit: contain; }
-.experiencetext { flex: 1; min-width: 150px; }
-.experiencerole { font-family: 'Open Sans', sans-serif; font-size: 1.1rem; font-weight: 700; color: #111; margin-bottom: 4px; }
-.experiencecompany { font-family: 'Open Sans', sans-serif; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 4px; }
-.experiencedate { font-family: 'Open Sans', sans-serif; font-size: 0.85rem; color: #888; margin: 0; }
+.experiencemeta { flex: 1; min-width: 140px; }
+.experiencerole { font-family: 'Open Sans', sans-serif; font-size: 1rem; font-weight: 700; color: #111; margin-bottom: 4px; }
+.experiencerow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.experiencecompany { font-family: 'Open Sans', sans-serif; font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+.experiencedate { font-family: 'Open Sans', sans-serif; font-size: 0.8rem; color: #888; margin: 0; }
+.experiencebadge { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 99px; background: var(--accent-purple); color: #ffffff; border: 1px solid var(--accent-purple); }
+.experiencedesc { width: 100%; display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid #f3f4f6; }
+.experienceitem { display: flex; gap: 10px; align-items: flex-start; }
+.experiencebullet { margin-top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-purple); flex-shrink: 0; }
+.experiencetext { font-family: 'Open Sans', sans-serif; font-size: 0.875rem; line-height: 1.7; color: #444; margin: 0; }
+.experiencetags { display: flex; gap: 6px; flex-wrap: wrap; width: 100%; padding-top: 12px; border-top: 1px solid #f3f4f6; }
+.experiencetag { font-size: 11px; padding: 3px 10px; border-radius: 99px; background: #f9fafb; color: #666; border: 1px solid #e5e7eb; font-family: 'Open Sans', sans-serif; }
 
-/* ===== CERTIFICATE — centre ===== */
+
+
+
 #sertificate { padding: var(--section-pad); }
 #sertificate h2 { text-align: center; margin-bottom: 0; }
 .sertificatelist {
@@ -426,7 +446,6 @@ section h2 {
 .sertificateimage { width: 100%; height: 180px; background-color: #f0b256; border-radius: 10px 10px 0 0; margin: 0; flex-shrink: 0; }
 .sertificatename { font-family: 'Open Sans', sans-serif; font-size: 0.85rem; color: #333; text-align: center; padding: 10px 10px 0; }
 
-/* ===== CONTACT ===== */
 #contact { padding: var(--section-pad); text-align: center; }
 #contact h2 { margin-bottom: 6px; }
 .Contacttext { color: var(--text-muted); font-family: 'Open Sans', sans-serif; font-size: 0.9rem; margin-bottom: 36px; line-height: 1.6; }
@@ -437,9 +456,10 @@ section h2 {
 .contactitem .title { padding-top: 8px; color: #333; font-family: 'Open Sans', sans-serif; font-size: 0.85rem; font-weight: 700; }
 .contactitem .desc { max-width: 130px; text-align: center; word-break: break-word; font-size: 0.75rem; padding-top: 6px; color: #555; font-family: 'Open Sans', sans-serif; }
 
-/* ============================================================
-   TABLET  ≤ 1200px
-   ============================================================ */
+
+
+
+
 @media (max-width: 1200px) {
   .skillslist { grid-template-columns: repeat(5, 1fr); }
 }
@@ -451,9 +471,6 @@ section h2 {
   .projectlist { grid-template-columns: repeat(2, minmax(0, 340px)); }
 }
 
-/* ============================================================
-   MOBILE  ≤ 768px
-   ============================================================ */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   .sidebar { transform: translateX(-100%); width: 250px; }
@@ -462,7 +479,6 @@ section h2 {
 
   :root { --section-pad: 60px 24px 40px; }
 
-  /* Hero */
   .box { min-height: 100vh; padding: 100px 24px 60px; justify-content: flex-end; }
   .boxtext { font-size: clamp(1.6rem, 7vw, 2.6rem); }
   .boxdescription { font-size: 0.85rem; max-width: 100%; }
@@ -470,31 +486,22 @@ section h2 {
   .menubtn { flex-direction: column; align-items: flex-start; }
   .btn, .btnwa { width: 190px; }
 
-  /* About */
   .interest { text-align: left; }
   .about-wrapper { flex-direction: column; }
   .text { width: 100%; }
   .box-container { grid-template-columns: repeat(2, 1fr); }
 
-  /* Skills */
   .skillslist { grid-template-columns: repeat(3, 1fr); }
 
-  /* Projects */
   .projectlist { grid-template-columns: 1fr; justify-content: stretch; }
 
-  /* Experience */
   .experiencelist1 { padding: 20px; max-width: 100%; }
 
-  /* Certificate */
   .sertificatelist { grid-template-columns: repeat(2, minmax(140px, 1fr)); justify-content: center; }
 
-  /* Contact */
   .contactlist { gap: 24px 28px; }
 }
 
-/* ============================================================
-   SMALL MOBILE  ≤ 480px
-   ============================================================ */
 @media (max-width: 480px) {
   .box-container { grid-template-columns: 1fr 1fr; }
   .skillslist { grid-template-columns: repeat(3, 1fr); }

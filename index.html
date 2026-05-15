@@ -7,30 +7,227 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=DM+Sans:wght@400;500;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== PROJECT & CERTIFICATE MODAL ===== */
+    .zoom-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      justify-content: center;
+      align-items: center;
+      animation: modalFadeIn 0.25s ease;
+    }
+    .zoom-modal.active { display: flex; }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .zoom-modal-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 92vw;
+      max-height: 92vh;
+      animation: modalSlideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes modalSlideUp {
+      from { transform: translateY(24px) scale(0.96); opacity: 0; }
+      to   { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    /* Close button */
+    .zoom-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s, transform 0.2s;
+      z-index: 10001;
+      backdrop-filter: blur(4px);
+    }
+    .zoom-close:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    /* Project modal — single image */
+    .zoom-modal-img {
+      max-width: 88vw;
+      max-height: 80vh;
+      border-radius: 14px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+      object-fit: contain;
+      display: block;
+    }
+
+    .zoom-modal-caption {
+      margin-top: 14px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== CERTIFICATE GALLERY MODAL ===== */
+    .cert-gallery-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cert-gallery-images {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .cert-gallery-images .zoom-modal-img {
+      max-width: 42vw;
+      max-height: 75vh;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .cert-gallery-images .zoom-modal-img.hidden-img {
+      opacity: 0;
+      pointer-events: none;
+      width: 0;
+      min-width: 0;
+      max-width: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Nav arrows for certificate */
+    .cert-nav {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+      backdrop-filter: blur(4px);
+    }
+    .cert-nav:hover { background: rgba(255,255,255,0.25); transform: scale(1.08); }
+    .cert-nav:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+
+    /* Dot indicators */
+    .cert-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      justify-content: center;
+    }
+    .cert-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .cert-dot.active {
+      background: #fff;
+      transform: scale(1.3);
+    }
+
+    /* Hint label on single view */
+    .cert-hint {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 8px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== CERTIFICATE CARD: make image clickable ===== */
+    .sertificatecard { cursor: pointer; }
+    .sertificateimage {
+      position: relative;
+      overflow: hidden;
+    }
+    .sertificateimage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+      display: block;
+      transition: transform 0.35s;
+    }
+    .sertificatecard:hover .sertificateimage img { transform: scale(1.05); }
+    .sert-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.25s;
+      border-radius: 10px 10px 0 0;
+    }
+    .sert-overlay i { color: #fff; font-size: 1.5rem; }
+    .sertificatecard:hover .sert-overlay { opacity: 1; }
+  </style>
 </head>
 
 <body>
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="files/typo1.mp4" type="video/mp4">
-  </video>
-
-  <!-- Image Modal -->
-  <div id="imagemodal" class="imagemodal">
-    <span class="close">&times;</span>
-    <img class="modalcontent" id="fullimg" src="" alt="Project Preview">
+  <!-- ===== PROJECT ZOOM MODAL ===== -->
+  <div id="projectModal" class="zoom-modal" role="dialog" aria-modal="true" aria-label="Project Preview">
+    <button class="zoom-close" id="projectModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="zoom-modal-inner">
+      <img class="zoom-modal-img" id="projectModalImg" src="" alt="Project Preview">
+      <p class="zoom-modal-caption" id="projectModalCaption"></p>
+    </div>
   </div>
 
-  <!-- Hamburger (mobile) -->
-  <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-    <span></span><span></span><span></span>
-  </button>
+  <!-- ===== CERTIFICATE GALLERY MODAL ===== -->
+  <div id="certModal" class="zoom-modal" role="dialog" aria-modal="true" aria-label="Certificate Preview">
+    <button class="zoom-close" id="certModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="zoom-modal-inner">
+      <div class="cert-gallery-wrap">
+        <button class="cert-nav" id="certPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="cert-gallery-images" id="certGalleryImages">
+          <!-- images injected by JS -->
+        </div>
+        <button class="cert-nav" id="certNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="cert-dots" id="certDots"></div>
+      <p class="zoom-modal-caption" id="certModalCaption"></p>
+      <p class="cert-hint" id="certHint">Use arrow keys or buttons to navigate</p>
+    </div>
+  </div>
 
-  <!-- Sidebar Overlay -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <div class="sidebaritem">
       <div class="photo">
@@ -48,10 +245,8 @@
     </div>
   </div>
 
-  <!-- Main Content -->
   <div id="content" class="content">
 
-    <!-- Hero -->
     <div class="box" id="menu">
       <img src="files/menu/menu4.png" class="boximg" alt="">
       <div class="boxcontent">
@@ -72,9 +267,23 @@
           <i class="fa-brands fa-whatsapp"></i> Let's Talk
         </a>
       </div>
+      <a class="scrollindicator" href="#interest">
+        <span class="scrolllabel">Scroll to see more</span>
+        <div class="scrollmouse"><div class="scrollwheel"></div></div>
+        <div class="scrollarrows">
+          <div class="scrollarrow"></div>
+          <div class="scrollarrow"></div>
+          <div class="scrollarrow"></div>
+          <script>
+            const scrollBtn = document.querySelector('.scrollindicator');
+            window.addEventListener('scroll', () => {
+              scrollBtn.classList.toggle('hidden', window.scrollY > 80);
+            });
+          </script>
+        </div>
+      </a>
     </div>
 
-    <!-- About Me -->
     <section id="interest">
       <h2 class="interest">About Me</h2>
       <div class="about-wrapper">
@@ -117,7 +326,6 @@
       </div>
     </section>
 
-    <!-- Skills & Tools -->
     <section class="skills" id="skills">
       <h2>Skills &amp; Tools</h2>
       <div class="skilltext">
@@ -130,8 +338,8 @@
         <a class="skillsitem"><img src="files/logo/css.png" alt="CSS"><span class="skillsitemtext">CSS</span></a>
         <a class="skillsitem"><img src="files/logo/python.png" alt="Python"><span class="skillsitemtext">Python</span></a>
         <a class="skillsitem"><img src="files/logo/mysql.png" alt="MySQL"><span class="skillsitemtext">MySQL</span></a>
+        <a class="skillsitem"><img src="files/logo/C++.png" alt="MySQL"><span class="skillsitemtext">C++</span></a>
         <a class="skillsitem"><img src="files/logo/Arduino.png" alt="Arduino"><span class="skillsitemtext">Arduino</span></a>
-        <a class="skillsitem"><img src="files/logo/github.png" alt="Github"><span class="skillsitemtext">Github</span></a>
         <a class="skillsitem"><img src="files/logo/vscode.png" alt="VSCode"><span class="skillsitemtext">VS Code</span></a>
         <a class="skillsitem"><img src="files/logo/spreadsheeet.png" alt="Spreadsheets"><span class="skillsitemtext">Spreadsheets</span></a>
         <a class="skillsitem"><img src="files/logo/word.png" alt="Word"><span class="skillsitemtext">MS Word</span></a>
@@ -140,17 +348,18 @@
         <a class="skillsitem"><img src="files/logo/visio.png" alt="Visio"><span class="skillsitemtext">MS Visio</span></a>
         <a class="skillsitem"><img src="files/logo/tableau.png" alt="Tableau"><span class="skillsitemtext">Tableau</span></a>
         <a class="skillsitem"><img src="files/logo/powerbi.png" alt="Power BI"><span class="skillsitemtext">Power BI</span></a>
-        <a class="skillsitem"><img src="files/logo/canva1.png" alt="Canva"><span class="skillsitemtext">Canva</span></a>
+        <a class="skillsitem"><img src="files/logo/github.png" alt="Github"><span class="skillsitemtext">Github</span></a>
         <a class="skillsitem"><img src="files/logo/ae.png" alt="After Effects"><span class="skillsitemtext">After Effects</span></a>
         <a class="skillsitem"><img src="files/logo/ai.png" alt="Illustrator"><span class="skillsitemtext">Illustrator</span></a>
         <a class="skillsitem"><img src="files/logo/pr.png" alt="Premiere Pro"><span class="skillsitemtext">Premiere Pro</span></a>
         <a class="skillsitem"><img src="files/logo/ps.png" alt="Photoshop"><span class="skillsitemtext">Photoshop</span></a>
         <a class="skillsitem"><img src="files/logo/filmora.png" alt="Filmora"><span class="skillsitemtext">Filmora</span></a>
+        <a class="skillsitem"><img src="files/logo/drawio.png" alt="Figma"><span class="skillsitemtext">Draw Io</span></a>
         <a class="skillsitem"><img src="files/logo/figma.png" alt="Figma"><span class="skillsitemtext">Figma</span></a>
+        <a class="skillsitem"><img src="files/logo/canva1.png" alt="Canva"><span class="skillsitemtext">Canva</span></a>
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="skilltext">
@@ -160,7 +369,7 @@
       </div>
       <div class="projectlist">
         <div class="projectitem">
-          <div class="projectimage" onclick="openImage('files/Projects/Project1.png')">
+          <div class="projectimage" onclick="openProjectModal('files/Projects/Project1.png', 'A Star Line Follower Car')">
             <img src="files/Projects/Project1.png" alt="A Star Line Follower Car">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
             <span class="projectcategory">AI Development</span>
@@ -173,7 +382,7 @@
           </div>
         </div>
         <div class="projectitem">
-          <div class="projectimage" onclick="openImage('files/Projects/Project2.png')">
+          <div class="projectimage" onclick="openProjectModal('files/Projects/Project2.png', 'Smart Helmet Anti Sleep')">
             <img src="files/Projects/Project2.png" alt="Smart Helmet Anti Sleep">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
             <span class="projectcategory">Computer Vision &amp; Robotics</span>
@@ -186,7 +395,7 @@
           </div>
         </div>
         <div class="projectitem">
-          <div class="projectimage" onclick="openImage('files/Projects/Project3.png')">
+          <div class="projectimage" onclick="openProjectModal('files/Projects/Project3.png', 'Payroll Information System')">
             <img src="files/Projects/Project3.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
             <span class="projectcategory">Web Development</span>
@@ -199,41 +408,57 @@
           </div>
         </div>
         <div class="projectitem">
-          <div class="projectimage" onclick="openImage('files/Projects/Project3.png')">
-            <img src="files/Projects/Project3.png" alt="Payroll Information System">
+          <div class="projectimage" onclick="openProjectModal('files/Projects/Project4.png', 'Bukatoko Product User Behavior Analysis')">
+            <img src="files/Projects/Project4.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Web Development</span>
+            <span class="projectcategory">Product Analyst</span>
           </div>
           <div class="project-footer">
-            <p class="projectname">Payroll Information System</p>
-            <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/GAJI_Payroll_Information_System', '_blank')">
+            <p class="projectname">Bukatoko Product User Behavior Analysis</p>
+            <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Bukatoko-Product-User-Behavior-Analysis', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
           </div>
         </div>
       </div>
-      
     </section>
 
-    <!-- Work Experience -->
     <section id="experience">
       <h2>Work Experience</h2>
-      <!-- wrapper untuk centre -->
-      <div class="experience-wrapper">
-        <div class="experiencelist1">
+      <div class="expriencewrapper">
+        <div class="experiencecard">
           <div class="experiencelogo">
             <img src="files/Kominfo.png" alt="Kominfo">
           </div>
-          <div class="experiencetext">
+          <div class="experiencemeta">
             <p class="experiencerole">IT Support &amp; Data Analyst</p>
-            <p class="experiencecompany">Kominfo</p>
-            <p class="experiencedate">Oct 2023 – Jan 2024</p>
+            <div class="experiencerow">
+              <p class="experiencecompany">Kominfo</p>
+              <span class="experiencebadge">Internship</span>
+              <p class="experiencedate">Oct 2023 – Jan 2024</p>
+            </div>
+          </div>
+          <div class="experiencedesc">
+            <div class="experienceitem">
+              <div class="experiencebullet"></div>
+              <p class="experiencetext">Developing and optimizing robotic systems using machine learning approaches (Perceptron, Multi-Layer Perceptron, Backpropagation) to detect errors and improve system performance</p>
+            </div>
+            <div class="experienceitem">
+              <div class="experiencebullet"></div>
+              <p class="experiencetext">Analyze data and support data-based decision making through monitoring and data processing media using Microsoft Excel and related software</p>
+            </div>
+          </div>
+          <div class="experiencetags">
+            <span class="experiencetag">Machine Learning</span>
+            <span class="experiencetag">Data Analysis</span>
+            <span class="experiencetag">Microsoft Excel</span>
+            <span class="experiencetag">Media Monitoring</span>
+            <span class="experiencetag">IT Support</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Certificate -->
     <section id="sertificate">
       <h2>Certificate</h2>
       <div class="skilltext">
@@ -242,19 +467,63 @@
         <p class="line1"></p>
       </div>
       <div class="sertificatelist">
-        <a class="sertificatecard"><div class="sertificateimage"></div><span class="sertificatename">Certificate Junior</span></a>
-        <a class="sertificatecard"><div class="sertificateimage"></div><span class="sertificatename">Certificate Junior</span></a>
-        <a class="sertificatecard"><div class="sertificateimage"></div><span class="sertificatename">Certificate Junior</span></a>
-        <a class="sertificatecard"><div class="sertificateimage"></div><span class="sertificatename">Certificate Junior</span></a>
-        <a class="sertificatecard"><div class="sertificateimage"></div><span class="sertificatename">Certificate Junior</span></a>
-        <a class="sertificatecard"><div class="sertificateimage"></div><span class="sertificatename">Certificate Junior</span></a>
+        <!-- Each card uses data-images for the gallery: gd1.jpg is thumbnail and first slide, gd2.jpg is second slide -->
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/gd1.jpg","files/sertifikat/gd2.jpg"]' data-name="Junior Graphic Designer">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/gd1.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">Junior Graphic Designer</span>
+        </div>
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/da.jpg"]' data-name="Intro to Data Analytics">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/da.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">Intro to Data Analytics</span>
+        </div>
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/007.jpg"]' data-name="Hypno communication and the science of luck life">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/007.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">Hypno communication and the science of luck life</span>
+        </div>
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/008.jpg","files/sertifikat/009.jpg"]' data-name="International Education Participant">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/008.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">International Education Participant</span>
+        </div>
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/012.jpg","files/sertifikat/013.jpg"]' data-name="Youth today leader tomorrow">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/012.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">Youth today leader tomorrow</span>
+        </div>
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/015.jpg","files/sertifikat/016.jpg"]' data-name="How to be a great teacher">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/015.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">How to be a great teacher</span>
+        </div>
+        <div class="sertificatecard" onclick="openCertModal(this)" data-images='["files/sertifikat/018.jpg"]' data-name="Be The Best version of yourself">
+          <div class="sertificateimage">
+            <img src="files/sertifikat/018.jpg" alt="Certificate Junior">
+            <div class="sert-overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+          </div>
+          <span class="sertificatename">Be The Best version of yourself</span>
+        </div>
+
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
-      <p class="Contacttext">Feel free to reach out — I'd love to connect and collaborate!</p>
+      <p class="Contacttext">Thank you for visiting my portofolio, Feel free to reach out — I'd love to connect and collaborate!</p>
       <div class="contactlist">
         <a class="contactitem" href="mailto:LuthfieBudieAndika@gmail.com">
           <i class="fa-solid fa-envelope"></i>
@@ -284,38 +553,26 @@
       </div>
     </section>
 
-  </div><!-- end #content -->
+  </div>
 
   <script>
-    // ===== HAMBURGER / SIDEBAR =====
+    // ===== SIDEBAR =====
     const hamburger = document.getElementById('hamburger');
     const sidebar   = document.getElementById('sidebar');
     const overlay   = document.getElementById('sidebarOverlay');
     const navLinks  = document.querySelectorAll('.sidebar a');
 
-    function openSidebar()  { sidebar.classList.add('open');    overlay.classList.add('active');    hamburger.classList.add('open'); }
-    function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); hamburger.classList.remove('open'); }
+    function openSidebar()  { sidebar.classList.add('open');    overlay.classList.add('active');    hamburger && hamburger.classList.add('open'); }
+    function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); hamburger && hamburger.classList.remove('open'); }
 
-    hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+    if (hamburger) hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
     overlay.addEventListener('click', closeSidebar);
     navLinks.forEach(l => l.addEventListener('click', () => { if (window.innerWidth <= 768) closeSidebar(); }));
-
-    // ===== IMAGE MODAL =====
-    function openImage(src) {
-      document.getElementById('imagemodal').style.display = 'flex';
-      document.getElementById('fullimg').src = src;
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('imagemodal');
-      document.querySelector('.close').onclick = () => modal.style.display = 'none';
-      modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.style.display = 'none'; });
-    });
 
     // ===== ACTIVE NAV HIGHLIGHT =====
     const sections = document.querySelectorAll('section, .box');
     const links    = document.querySelectorAll('.sidebar a');
-    const observer = new IntersectionObserver(entries => {
+    const sectionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           links.forEach(l => l.style.color = '#ccc');
@@ -324,7 +581,120 @@
         }
       });
     }, { threshold: 0.4 });
-    sections.forEach(s => observer.observe(s));
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // ===========================
+    // PROJECT MODAL
+    // ===========================
+    const projectModal     = document.getElementById('projectModal');
+    const projectModalImg  = document.getElementById('projectModalImg');
+    const projectModalCaption = document.getElementById('projectModalCaption');
+    const projectModalClose = document.getElementById('projectModalClose');
+
+    function openProjectModal(src, name) {
+      projectModalImg.src = src;
+      projectModalCaption.textContent = name || '';
+      projectModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    projectModalClose.addEventListener('click', closeProjectModal);
+    projectModal.addEventListener('click', e => { if (e.target === projectModal) closeProjectModal(); });
+
+    // ===========================
+    // CERTIFICATE GALLERY MODAL
+    // ===========================
+    const certModal        = document.getElementById('certModal');
+    const certModalClose   = document.getElementById('certModalClose');
+    const certGalleryImages = document.getElementById('certGalleryImages');
+    const certDots         = document.getElementById('certDots');
+    const certCaption      = document.getElementById('certModalCaption');
+    const certHint         = document.getElementById('certHint');
+    const certPrev         = document.getElementById('certPrev');
+    const certNext         = document.getElementById('certNext');
+
+    let certImages = [];
+    let certIndex  = 0;
+
+    function renderCertGallery() {
+      certGalleryImages.innerHTML = '';
+      certDots.innerHTML = '';
+
+      certImages.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.className = 'zoom-modal-img';
+        img.src = src;
+        img.alt = `Certificate image ${i + 1}`;
+        if (i !== certIndex) img.classList.add('hidden-img');
+        certGalleryImages.appendChild(img);
+
+        const dot = document.createElement('div');
+        dot.className = 'cert-dot' + (i === certIndex ? ' active' : '');
+        dot.addEventListener('click', () => { certIndex = i; updateCertView(); });
+        certDots.appendChild(dot);
+      });
+
+      updateCertView();
+    }
+
+    function updateCertView() {
+      const imgs = certGalleryImages.querySelectorAll('img');
+      const dots = certDots.querySelectorAll('.cert-dot');
+
+      imgs.forEach((img, i) => {
+        img.classList.toggle('hidden-img', i !== certIndex);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === certIndex);
+      });
+
+      certPrev.disabled = certIndex === 0;
+      certNext.disabled = certIndex === certImages.length - 1;
+
+      // Update hint
+      if (certImages.length > 1) {
+        certHint.textContent = `${certIndex + 1} / ${certImages.length}  ·  Use arrow keys or buttons to navigate`;
+      } else {
+        certHint.textContent = '';
+      }
+    }
+
+    function openCertModal(card) {
+      certImages = JSON.parse(card.dataset.images || '[]');
+      const name = card.dataset.name || '';
+      certIndex = 0;
+      certCaption.textContent = name;
+      renderCertGallery();
+      certModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+      certModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    certPrev.addEventListener('click', () => { if (certIndex > 0) { certIndex--; updateCertView(); } });
+    certNext.addEventListener('click', () => { if (certIndex < certImages.length - 1) { certIndex++; updateCertView(); } });
+    certModalClose.addEventListener('click', closeCertModal);
+    certModal.addEventListener('click', e => { if (e.target === certModal) closeCertModal(); });
+
+    // ===========================
+    // GLOBAL ESC KEY
+    // ===========================
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeProjectModal();
+        closeCertModal();
+      }
+      if (e.key === 'ArrowLeft'  && certModal.classList.contains('active') && certIndex > 0) { certIndex--; updateCertView(); }
+      if (e.key === 'ArrowRight' && certModal.classList.contains('active') && certIndex < certImages.length - 1) { certIndex++; updateCertView(); }
+    });
   </script>
 
 </body>
