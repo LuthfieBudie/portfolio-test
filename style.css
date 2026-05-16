@@ -508,3 +508,26 @@ section h2 {
   .sertificatelist { grid-template-columns: repeat(2, 1fr); }
   .contactlist { gap: 20px 16px; }
 }
+@media print {
+    body {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    nav, .sidebar, button, .menu, footer {
+        display: none !important;
+    }
+    
+    .container, .section {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+    }
+    
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
