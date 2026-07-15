@@ -172,7 +172,8 @@
         <a class="skillsitem"><img src="files/logo/figma.png" alt="Figma"><span class="skillsitemtext">Figma</span></a>
         <a class="skillsitem"><img src="files/logo/canva1.png" alt="Canva"><span class="skillsitemtext">Canva</span></a>
         <a class="skillsitem"><img src="files/logo/kaggle.png" alt="Kaggle"><span class="skillsitemtext">Kaggle</span></a>
-        <a class="skillsitem"><img src="files/logo/collab.png" alt="Kaggle"><span class="skillsitemtext">Colab</span></a>
+        <a class="skillsitem"><img src="files/logo/collab.png" alt="collab"><span class="skillsitemtext">Colab</span></a>
+        <a class="skillsitem"><img src="files/logo/autodesk.png" alt="autodesk"><span class="skillsitemtext">autodesk</span></a>
       </div>
     </section>
 
@@ -244,13 +245,13 @@
         
 
         <div class="projectitem">
-          <div class="projectimage" onclick="openProjectModal('files/Projects/Project0.png', 'Real time AI thrift store simulation pipeline')">
-            <img src="files/Projects/Project0.png" alt="Payroll Information System">
+          <div class="projectimage" onclick="openProjectModal('files/Projects/Project8.png', 'Arcade - FeastQuarium (V1)')">
+            <img src="files/Projects/Project8.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
             <span class="projectcategory">Software &amp; Application Development</span>
           </div>
           <div class="project-footer">
-            <p class="projectname">(WIP) Arcade Hungry Fish in the Tank (V1)</p>
+            <p class="projectname">Arcade - FeastQuarium (V1)</p>
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Arcade_Hungry_Fish_in_the_Tank_-V1-', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
@@ -508,7 +509,13 @@
           <span class="desc">Jaka Setia, Bekasi Selatan, Jawa Barat</span>
         </a>
       </div>
-    </section>
+      <div>
+        <p class="update">Updated: <span id="last-update"></span></p>
+      </div>
+      <script>
+        document.getElementById("last-update").innerHTML = document.lastModified;
+      </script>
+    </section> 
 
   </div>
 
