@@ -83,12 +83,6 @@
           <div class="scrollarrow"></div>
           <div class="scrollarrow"></div>
           <div class="scrollarrow"></div>
-          <script>
-            const scrollBtn = document.querySelector('.scrollindicator');
-            window.addEventListener('scroll', () => {
-              scrollBtn.classList.toggle('hidden', window.scrollY > 80);
-            });
-          </script>
         </div>
       </a>
     </div>
@@ -145,35 +139,44 @@
         <p class="skillstext">Continuously Improving My Skills</p>
         <p class="line1"></p>
       </div>
+      <div class="skillsfilter">
+        <button class="skillsfilterbtn active" data-filter="all">All</button>
+        <button class="skillsfilterbtn" data-filter="Programming_Language">Programming Language</button>
+        <button class="skillsfilterbtn" data-filter="Creative_Tools">Creative Tools</button>
+        <button class="skillsfilterbtn" data-filter="content_creation">Content Creation</button>
+        <button class="skillsfilterbtn" data-filter="data_analyst">Data Analyst</button>
+        <button class="skillsfilterbtn" data-filter="Developer_Office_Tools">Developer & Office Tools</button>
+        <button class="skillsfilterbtn" data-filter="3D_Hardware">3D & Hardware</button>
+      </div>
       <div class="skillslist">
-        <a class="skillsitem"><img src="files/logo/html.png" alt="HTML"><span class="skillsitemtext">HTML</span></a>
-        <a class="skillsitem"><img src="files/logo/css.png" alt="CSS"><span class="skillsitemtext">CSS</span></a>
-        <a class="skillsitem"><img src="files/logo/python.png" alt="Python"><span class="skillsitemtext">Python</span></a>
-        <a class="skillsitem"><img src="files/logo/mysql.png" alt="MySQL"><span class="skillsitemtext">MySQL</span></a>
-        <a class="skillsitem"><img src="files/logo/C++.png" alt="MySQL"><span class="skillsitemtext">C++</span></a>
-        <a class="skillsitem"><img src="files/logo/csharp.png" alt="csharp"><span class="skillsitemtext">C#</span></a>
-        <a class="skillsitem"><img src="files/logo/Arduino.png" alt="Arduino"><span class="skillsitemtext">Arduino</span></a>
-        <a class="skillsitem"><img src="files/logo/vscode.png" alt="VSCode"><span class="skillsitemtext">VS Code</span></a>
-        <a class="skillsitem"><img src="files/logo/word.png" alt="Word"><span class="skillsitemtext">MS Word</span></a>
-        <a class="skillsitem"><img src="files/logo/docs.png" alt="Spreadsheets"><span class="skillsitemtext">docs</span></a>
-        <a class="skillsitem"><img src="files/logo/excel.png" alt="Excel"><span class="skillsitemtext">MS Excel</span></a>
-        <a class="skillsitem"><img src="files/logo/spreadsheeet.png" alt="Spreadsheets"><span class="skillsitemtext">Spreadsheets</span></a>
-        <a class="skillsitem"><img src="files/logo/ppt.png" alt="PowerPoint"><span class="skillsitemtext">PowerPoint</span></a>
-        <a class="skillsitem"><img src="files/logo/visio.png" alt="Visio"><span class="skillsitemtext">MS Visio</span></a>
-        <a class="skillsitem"><img src="files/logo/tableau.png" alt="Tableau"><span class="skillsitemtext">Tableau</span></a>
-        <a class="skillsitem"><img src="files/logo/powerbi.png" alt="Power BI"><span class="skillsitemtext">Power BI</span></a>
-        <a class="skillsitem"><img src="files/logo/github.png" alt="Github"><span class="skillsitemtext">Github</span></a>
-        <a class="skillsitem"><img src="files/logo/ae.png" alt="After Effects"><span class="skillsitemtext">After Effects</span></a>
-        <a class="skillsitem"><img src="files/logo/ai.png" alt="Illustrator"><span class="skillsitemtext">Illustrator</span></a>
-        <a class="skillsitem"><img src="files/logo/pr.png" alt="Premiere Pro"><span class="skillsitemtext">Premiere Pro</span></a>
-        <a class="skillsitem"><img src="files/logo/ps.png" alt="Photoshop"><span class="skillsitemtext">Photoshop</span></a>
-        <a class="skillsitem"><img src="files/logo/filmora.png" alt="Filmora"><span class="skillsitemtext">Filmora</span></a>
-        <a class="skillsitem"><img src="files/logo/drawio.png" alt="Figma"><span class="skillsitemtext">Draw Io</span></a>
-        <a class="skillsitem"><img src="files/logo/figma.png" alt="Figma"><span class="skillsitemtext">Figma</span></a>
-        <a class="skillsitem"><img src="files/logo/canva1.png" alt="Canva"><span class="skillsitemtext">Canva</span></a>
-        <a class="skillsitem"><img src="files/logo/kaggle.png" alt="Kaggle"><span class="skillsitemtext">Kaggle</span></a>
-        <a class="skillsitem"><img src="files/logo/collab.png" alt="collab"><span class="skillsitemtext">Colab</span></a>
-        <a class="skillsitem"><img src="files/logo/autodesk.png" alt="autodesk"><span class="skillsitemtext">autodesk</span></a>
+        <a class="skillsitem" data-category="Programming_Language"><img src="files/logo/html.png" alt="HTML"><span class="skillsitemtext">HTML</span></a>
+        <a class="skillsitem" data-category="Programming_Language"><img src="files/logo/css.png" alt="CSS"><span class="skillsitemtext">CSS</span></a>
+        <a class="skillsitem" data-category="Programming_Language data_analyst"><img src="files/logo/python.png" alt="Python"><span class="skillsitemtext">Python</span></a>
+        <a class="skillsitem" data-category="Programming_Language data_analyst"><img src="files/logo/mysql.png" alt="MySQL"><span class="skillsitemtext">MySQL</span></a>
+        <a class="skillsitem" data-category="Programming_Language"><img src="files/logo/C++.png" alt="MySQL"><span class="skillsitemtext">C++</span></a>
+        <a class="skillsitem" data-category="Programming_Language"><img src="files/logo/csharp.png" alt="csharp"><span class="skillsitemtext">C#</span></a>
+        <a class="skillsitem" data-category="Programming_Language 3D_Hardware"><img src="files/logo/Arduino.png" alt="Arduino"><span class="skillsitemtext">Arduino</span></a>
+        <a class="skillsitem" data-category="Programming_Language Developer_Office_Tools"><img src="files/logo/vscode.png" alt="VSCode"><span class="skillsitemtext">VS Code</span></a>
+        <a class="skillsitem" data-category="content-creation Developer_Office_Tools"><img src="files/logo/word.png" alt="Word"><span class="skillsitemtext">MS Word</span></a>
+        <a class="skillsitem" data-category="content-creation Developer_Office_Tools"><img src="files/logo/docs.png" alt="Spreadsheets"><span class="skillsitemtext">docs</span></a>
+        <a class="skillsitem" data-category="data_analyst Developer_Office_Tools"><img src="files/logo/excel.png" alt="Excel"><span class="skillsitemtext">MS Excel</span></a>
+        <a class="skillsitem" data-category="data_analyst Developer_Office_Tools"><img src="files/logo/spreadsheeet.png" alt="Spreadsheets"><span class="skillsitemtext">Spreadsheets</span></a>
+        <a class="skillsitem" data-category="content-creation Developer_Office_Tools"><img src="files/logo/ppt.png" alt="PowerPoint"><span class="skillsitemtext">PowerPoint</span></a>
+        <a class="skillsitem" data-category="Creative_Tools Developer_Office_Tools"><img src="files/logo/visio.png" alt="Visio"><span class="skillsitemtext">MS Visio</span></a>
+        <a class="skillsitem" data-category="data_analyst"><img src="files/logo/tableau.png" alt="Tableau"><span class="skillsitemtext">Tableau</span></a>
+        <a class="skillsitem" data-category="data_analyst"><img src="files/logo/powerbi.png" alt="Power BI"><span class="skillsitemtext">Power BI</span></a>
+        <a class="skillsitem" data-category="Programming_Language Developer_Office_Tools"><img src="files/logo/github.png" alt="Github"><span class="skillsitemtext">Github</span></a>
+        <a class="skillsitem" data-category="content_creation Creative_Tools"><img src="files/logo/ae.png" alt="After Effects"><span class="skillsitemtext">After Effects</span></a>
+        <a class="skillsitem" data-category="content_creation Creative_Tools"><img src="files/logo/ai.png" alt="Illustrator"><span class="skillsitemtext">Illustrator</span></a>
+        <a class="skillsitem" data-category="content_creation"><img src="files/logo/pr.png" alt="Premiere Pro"><span class="skillsitemtext">Premiere Pro</span></a>
+        <a class="skillsitem" data-category="content_creation Creative_Tools"><img src="files/logo/ps.png" alt="Photoshop"><span class="skillsitemtext">Photoshop</span></a>
+        <a class="skillsitem" data-category="content_creation"><img src="files/logo/filmora.png" alt="Filmora"><span class="skillsitemtext">Filmora</span></a>
+        <a class="skillsitem" data-category="Creative_Tools Creative_Tools Developer_Office_Tools"><img src="files/logo/drawio.png" alt="Draw Io"><span class="skillsitemtext">Draw Io</span></a>
+        <a class="skillsitem" data-category="Creative_Tools"><img src="files/logo/figma.png" alt="Figma"><span class="skillsitemtext">Figma</span></a>
+        <a class="skillsitem" data-category="content_creation Creative_Tools"><img src="files/logo/canva1.png" alt="Canva"><span class="skillsitemtext">Canva</span></a>
+        <a class="skillsitem" data-category="data_analyst"><img src="files/logo/kaggle.png" alt="Kaggle"><span class="skillsitemtext">Kaggle</span></a>
+        <a class="skillsitem" data-category="Programming_Language data_analyst"><img src="files/logo/collab.png" alt="collab"><span class="skillsitemtext">Colab</span></a>
+        <a class="skillsitem" data-category="Creative_Tools 3D_Hardware"><img src="files/logo/autodesk.png" alt="autodesk"><span class="skillsitemtext">autodesk</span></a>
       </div>
     </section>
 
@@ -184,156 +187,225 @@
         <p class="skillstext">Some Of My Latest Work</p>
         <p class="line1"></p>
       </div>
+      <div class="projectfilter">
+        <button class="filterbtn active" data-filter="all">All</button>
+        <button class="filterbtn" data-filter="software-development">Software Development</button>
+        <button class="filterbtn" data-filter="robotics">Robotics</button>
+        <button class="filterbtn" data-filter="content-creation">Content Creation</button>
+        <button class="filterbtn" data-filter="data-analyst">Data Analyst</button>
+        <button class="filterbtn" data-filter="Progress">In Progress</button>
+      </div>
+
       <div class="projectlist">
         
 
 
-        <div class="projectitem">
-          <div class="projectimage" onclick="openProjectModal('files/Projects/contentcreator.jpg', 'Content Creator Example')">
-            <img src="files/Projects/contentcreator.jpg" alt="Payroll Information System">
-            <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Content Creation</span>
-          </div>
-          <div class="project-footer">
-            <p class="projectname">Content Creator Example</p>
-            <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://drive.google.com/drive/folders/1EJk31gXdhMCOCyYOBe8XGK9tIzOJ_3Hi?usp=sharing', '_blank')">
-              <i class="fa-brands fa-google-drive"></i> See Project
-            </button>
-          </div> 
-        </div>
+          
         
         
 
 
-        <div class="projectitem">
+        <div class="projectitem" data-category="robotics">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project1.png', 'A Star Line Follower Car')">
             <img src="files/Projects/Project1.png" alt="A Star Line Follower Car">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Robotics & AI Developer</span>
+            <!--<span class="projectcategory">Robotics & AI Developer</span>-->
           </div>
           <div class="project-footer">
             <p class="projectname">A Star Line Follower Car</p>
+            <span class="projectdescription">Design and build a prototype of a smart car designed to operate independently in detecting and following paths. This prototype utilizes image processing technology using OpenCV to recognize predetermined paths and move efficiently without human intervention.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>  
+            <div class="project-footer-bottom">               
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/A-Star-Algorithm-Smart-Car', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Robotics & AI Developer</p>
+            </div>
           </div>
         </div>
-        <div class="projectitem">
+
+
+
+
+        <div class="projectitem" data-category="robotics">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project2.png', 'Smart Helmet Anti Sleep')">
             <img src="files/Projects/Project2.png" alt="Smart Helmet Anti Sleep">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Computer Vision &amp; Robotics</span>
+            <!--<span class="projectcategory">Computer Vision &amp; Robotics</span>-->
           </div>
           <div class="project-footer">
             <p class="projectname">Smart Helmet Anti Sleep</p>
+            <span class="projectdescription">Developing a smart helmet system using a microcontroller with data processing software to detect user conditions in real-time, with automatic warning responses that improve safety.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>   
+            <div class="project-footer-bottom">              
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Smart-Anti-Sleep-Helmet', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Computer Vision &amp; Robotics</p>
+            </div>
           </div>
         </div>
 
 
-        <div class="projectitem">
+        <div class="projectitem" data-category="robotics Progress">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project0.png', 'Smart Helmet Anti Sleep')">
             <img src="files/Projects/Project0.png" alt="Smart Helmet Anti Sleep">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">NLP &amp; Embedded Systems</span>
+            <!--<span class="projectcategory">NLP &amp; Embedded Systems</span>-->
           </div>
           <div class="project-footer">
-            <p class="projectname">(WIP) Freddy Fazbear Voice Controlled AI Assistant With Animatronic Head</p>
+            <p class="projectname">Animatronic AI Assistant</p>
+            <span class="projectdescription">AI-powered hardware assistant that integrates LLaMA API for fast interaction, with the flexibility to switch to Gemini API for complex reasoning tasks. Voice inputs are processed via Python, then synced with microcontroller firmware to drive servo motors for real-time robotic facial movements on a Freddy head.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>     
+            <div class="project-footer-bottom">            
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Freddy_Fazbear_Voice_Controlled_AI_Assistant_With_Animatronic_Head', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">NLP &amp; Embedded Systems</p>
+            </div>
           </div>
         </div>
 
 
-        <div class="projectitem">
+        <div class="projectitem" data-category="software-development">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project3.png', 'Payroll Information System')">
             <img src="files/Projects/Project3.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Web Development</span>
+            <!--<span class="projectcategory">Web Development</span>-->
           </div>
           <div class="project-footer">
             <p class="projectname">Payroll Information System</p>
+            <span class="projectdescription">A web-based payroll management system designed to streamline employee data management, salary calculation, allowances, deductions, and automated payroll reporting.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>         
+            <div class="project-footer-bottom">        
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/GAJI_Payroll_Information_System', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Web Development</p>
+            </div>
           </div>
         </div>
 
         
 
-        <div class="projectitem">
+        <div class="projectitem" data-category="software-development">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project8.png', 'Arcade - FeastQuarium (V1)')">
             <img src="files/Projects/Project8.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Software &amp; Application Development</span>
+            <!--<span class="projectcategory">Software &amp; Application Development</span>-->
           </div>
           <div class="project-footer">
             <p class="projectname">Arcade - FeastQuarium (V1)</p>
+            <span class="projectdescription">Game where focused on fish that is so hungry to the point that it wipe all the fish around it. Developed using 2D python (Arcade Library), the project implement the concept of OOP, Game State Management, dynamic validation input, and integrate csv file to save high score in real time.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>   
+            <div class="project-footer-bottom">              
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Arcade_Hungry_Fish_in_the_Tank_-V1-', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Application Development</p>
+            </div>
           </div>
         </div>
         
-        <div class="projectitem">
+        <div class="projectitem" data-category="software-development data-analyst">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project5.png', 'Real time AI thrift store simulation pipeline')">
             <img src="files/Projects/Project5.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Software & AI Developer</span>
+            <!--<span class="projectcategory">Software & AI Developer</span>-->
           </div>
           <div class="project-footer">
-            <p class="projectname">Real time AI thrift store simulation pipeline</p>
+            <p class="projectname">Real time AI store simulation pipeline</p>
+            <span class="projectdescription">Automated real-time data pipeline to stream and log AI transaction data, product types, and shopping timestamps directly into Excel/CSV.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>    
+            <div class="project-footer-bottom">             
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Real-time-AI-thrift-store-simulation-pipeline', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Software & AI Developer</p>
+            </div>
           </div>
         </div>
 
-        <div class="projectitem">
+        <div class="projectitem" data-category="data-analyst">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project4.png', 'Bukatoko Product User Behavior Analysis')">
             <img src="files/Projects/Project4.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Product Analyst</span>
+            <!--<span class="projectcategory">Product Analyst</span>-->
           </div>
           <div class="project-footer">
             <p class="projectname">Bukatoko Product User Behavior Analysis</p>
+            <span class="projectdescription">A comprehensive analysis of cross-platform user behavior and feature effectiveness on the Bukatoko e-commerce app operating in Southeast Asia.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>         
+            <div class="project-footer-bottom">        
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Bukatoko-Product-User-Behavior-Analysis', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Product Analyst</p>
+            </div>
           </div>
         </div>
         
         
         
-        <div class="projectitem">
+        <div class="projectitem" data-category="data-analyst">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project6.png', 'Thrift Store Customers Insight Analysis')">
             <img src="files/Projects/Project6.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Sales Analyst</span>
+            <!--<span class="projectcategory">Sales Analyst</span>-->
           </div>
           <div class="project-footer">
             <p class="projectname">Thrift Store Customers Insight Analysis</p>
+            <span class="projectdescription">Analyzing customer behavior and store performance metrics for a thrift retail business. Using synthetic data generated from an AI-driven retail simulation, this analysis aims to uncover actionable insights regarding customer shopping patterns, peak hours, and product preferences.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>      
+            <div class="project-footer-bottom">     
             <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Thrift-Store-Customers-Insight-Analysis', '_blank')">
               <i class="fa-brands fa-github"></i> See Project
             </button>
+            <p class="projectcategory1">Sales Analyst</p>
+            </div> 
           </div>
         </div>
 
-        <div class="projectitem">
+
+
+
+        <div class="projectitem" data-category="data-analyst">
           <div class="projectimage" onclick="openProjectModal('files/Projects/Project7.png', 'Seoul Sweet Insight Overview')">
             <img src="files/Projects/Project7.png" alt="Payroll Information System">
             <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <span class="projectcategory">Sales Analyst</span>
+            <!--  <span class="projectcategory">Sales Analyst</span> -->
           </div>
           <div class="project-footer">
             <p class="projectname">Seoul Sweet Insight Overview</p>
-            <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Seoul_Sweet_Insight_Overview', '_blank')">
-              <i class="fa-brands fa-github"></i> See Project
-            </button>
+            <span class="projectdescription">Analyzed purchasing performance for Seoul Sweet, a bakery experiencing increasing demand but facing numerous challenges. This project Led the end-to-end data lifecycle, such as SQL data cleaning and manipulation, constructing an interactive dashboard in Power BI, and mapping journey customer problem metrics using Google Sheets.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>            
+            <div class="project-footer-bottom">
+              <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://github.com/LuthfieBudie/Seoul_Sweet_Insight_Overview', '_blank')">
+                <i class="fa-brands fa-github"></i> See Project
+              </button>
+              <p class="projectcategory1">Sales Analyst</p>
+            </div>
           </div>
+        </div>
+
+
+        <div class="projectitem" data-category="content-creation">
+            <div class="projectimage" onclick="openProjectModal('files/Projects/contentcreator.jpg', 'Content Creator Example')">
+              <img src="files/Projects/contentcreator.jpg" alt="Payroll Information System">
+              <div class="overlay"><i class="fa-solid fa-magnifying-glass"></i></div>
+              <!--<span class="projectcategory">Content Creation</span>-->
+          </div>
+          <div class="project-footer">
+            <p class="projectname">Content Example</p> 
+            <span class="projectdescription">Making viral content growth and hook strategy, creating relatable visual assets (memes) that scaled organic reach from double digits to thousands of views across Instagram & Facebook leading to shares by high traffic pages and tech YouTubers.</span>
+            <button class="seemore-btn" onclick="event.stopPropagation(); toggleDescription(this)">See more</button>
+            <div class="project-footer-bottom">     
+            <button class="projectbtn" onclick="event.stopPropagation(); window.open('https://drive.google.com/drive/folders/1EJk31gXdhMCOCyYOBe8XGK9tIzOJ_3Hi?usp=sharing', '_blank')">
+              <i class="fa-brands fa-google-drive"></i> See Project
+            </button>
+            <p class="projectcategory1">Content Creation</p>
+            </div>
+          </div> 
         </div>
 
         
@@ -531,149 +603,14 @@
           <span class="desc">Jaka Setia, Bekasi Selatan, Jawa Barat</span>
         </a>
       </div>
-      <div>
+      <div class="update-wrapper">
         <p class="update">Updated: <span id="last-update"></span></p>
       </div>
-      <script>
-        document.getElementById("last-update").innerHTML = document.lastModified;
-      </script>
     </section> 
 
   </div>
-
-  <script>
-    // ===== SIDEBAR =====
-    const hamburger = document.getElementById('hamburger');
-    const sidebar   = document.getElementById('sidebar');
-    const overlay   = document.getElementById('sidebarOverlay');
-    const navLinks  = document.querySelectorAll('.sidebar a');
-
-    function openSidebar()  { sidebar.classList.add('open');    overlay.classList.add('active');    hamburger && hamburger.classList.add('open'); }
-    function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); hamburger && hamburger.classList.remove('open'); }
-
-    if (hamburger) hamburger.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
-    overlay.addEventListener('click', closeSidebar);
-    navLinks.forEach(l => l.addEventListener('click', () => { if (window.innerWidth <= 768) closeSidebar(); }));
-
-    // ===== ACTIVE NAV HIGHLIGHT =====
-    const sections = document.querySelectorAll('section, .box');
-    const links    = document.querySelectorAll('.sidebar a');
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          links.forEach(l => l.style.color = '#ccc');
-          const active = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
-          if (active) active.style.color = '#fff';
-        }
-      });
-    }, { threshold: 0.4 });
-    sections.forEach(s => sectionObserver.observe(s));
-
-    const projectModal     = document.getElementById('projectModal');
-    const projectModalImg  = document.getElementById('projectModalImg');
-    const projectModalCaption = document.getElementById('projectModalCaption');
-    const projectModalClose = document.getElementById('projectModalClose');
-
-    function openProjectModal(src, name) {
-      projectModalImg.src = src;
-      projectModalCaption.textContent = name || '';
-      projectModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeProjectModal() {
-      projectModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    projectModalClose.addEventListener('click', closeProjectModal);
-    projectModal.addEventListener('click', e => { if (e.target === projectModal) closeProjectModal(); });
-
-    const certModal        = document.getElementById('certModal');
-    const certModalClose   = document.getElementById('certModalClose');
-    const certGalleryImages = document.getElementById('certGalleryImages');
-    const certDots         = document.getElementById('certDots');
-    const certCaption      = document.getElementById('certModalCaption');
-    const certHint         = document.getElementById('certHint');
-    const certPrev         = document.getElementById('certPrev');
-    const certNext         = document.getElementById('certNext');
-
-    let certImages = [];
-    let certIndex  = 0;
-
-    function renderCertGallery() {
-      certGalleryImages.innerHTML = '';
-      certDots.innerHTML = '';
-
-      certImages.forEach((src, i) => {
-        const img = document.createElement('img');
-        img.className = 'zoom-modal-img';
-        img.src = src;
-        img.alt = `Certificate image ${i + 1}`;
-        if (i !== certIndex) img.classList.add('hidden-img');
-        certGalleryImages.appendChild(img);
-
-        const dot = document.createElement('div');
-        dot.className = 'cert-dot' + (i === certIndex ? ' active' : '');
-        dot.addEventListener('click', () => { certIndex = i; updateCertView(); });
-        certDots.appendChild(dot);
-      });
-
-      updateCertView();
-    }
-
-    function updateCertView() {
-      const imgs = certGalleryImages.querySelectorAll('img');
-      const dots = certDots.querySelectorAll('.cert-dot');
-
-      imgs.forEach((img, i) => {
-        img.classList.toggle('hidden-img', i !== certIndex);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === certIndex);
-      });
-
-      certPrev.disabled = certIndex === 0;
-      certNext.disabled = certIndex === certImages.length - 1;
-
-      // Update hint
-      if (certImages.length > 1) {
-        certHint.textContent = `${certIndex + 1} / ${certImages.length}  ·  Use arrow keys or buttons to navigate`;
-      } else {
-        certHint.textContent = '';
-      }
-    }
-
-    function openCertModal(card) {
-      certImages = JSON.parse(card.dataset.images || '[]');
-      const name = card.dataset.name || '';
-      certIndex = 0;
-      certCaption.textContent = name;
-      renderCertGallery();
-      certModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeCertModal() {
-      certModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    certPrev.addEventListener('click', () => { if (certIndex > 0) { certIndex--; updateCertView(); } });
-    certNext.addEventListener('click', () => { if (certIndex < certImages.length - 1) { certIndex++; updateCertView(); } });
-    certModalClose.addEventListener('click', closeCertModal);
-    certModal.addEventListener('click', e => { if (e.target === certModal) closeCertModal(); });
-
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        closeProjectModal();
-        closeCertModal();
-      }
-      if (e.key === 'ArrowLeft'  && certModal.classList.contains('active') && certIndex > 0) { certIndex--; updateCertView(); }
-      if (e.key === 'ArrowRight' && certModal.classList.contains('active') && certIndex < certImages.length - 1) { certIndex++; updateCertView(); }
-    });
-  </script>
+  
+  <script src="script.js"></script>
 
 </body>
 </html>
