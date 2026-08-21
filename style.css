@@ -229,7 +229,66 @@ body {
   gap: 8px; text-decoration: none; color: #fff;
   transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
 }
-.btnwa:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+.btngal {
+  width: 170px;
+  font-family: 'Open Sans', sans-serif;
+  display: inline-flex; justify-content: center; align-items: center;
+  height: 48px; padding: 0 28px;
+  border-radius: 12px; background: linear-gradient(#3396ff, #0a7df8);
+  cursor: pointer; font-size: 0.95rem; font-weight: 600;
+  gap: 8px; text-decoration: none; color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
+  position: relative;
+  order: 3;
+  margin-left: auto;
+}
+
+.btngal:hover { transform: translateY(-2px); box-shadow: 0 6px 20px #469fff23; }
+
+/* Professional hover tooltip for the Gallery button */
+.btngal::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0f1720;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 5;
+}
+.btngal::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #0f1720;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 5;
+}
+.btngal:hover::after,
+.btngal:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.btngal:hover::before,
+.btngal:focus-visible::before {
+  opacity: 1;
+}
+.btnwa:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 101, 0.288); }
 
 section { padding: var(--section-pad); background: #fff; }
 section:nth-child(even) { background: #fafafa; }
@@ -429,6 +488,12 @@ section h2 {
   white-space: nowrap; flex-shrink: 0;
   transition: background 0.2s; text-decoration: none;
 }
+
+.projectbtn img{
+  width: 15px;
+  height: 14px;
+}
+
 .projectbtn:hover { background: #333; }
 
 .projectdescription {font-family: 'Open Sans', sans-serif; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -534,6 +599,7 @@ section h2 {
   .box::after { background: linear-gradient(to top, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.15) 100%); }
   .menubtn { flex-direction: column; align-items: flex-start; }
   .btn, .btnwa { width: 190px; }
+  .btngal { margin-left: 0; order: 0; }
 
   .interest { text-align: left; }
   .about-wrapper { flex-direction: column; }

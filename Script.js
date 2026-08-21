@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 const hamburger = document.getElementById('hamburger');
 const sidebar   = document.getElementById('sidebar');
 const overlay   = document.getElementById('sidebarOverlay');
