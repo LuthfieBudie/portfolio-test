@@ -479,6 +479,7 @@ section h2 {
   pointer-events: none;
 }
 .project-footer { padding: 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.project-footer1 {padding: 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;}
 .projectname { font-family: 'Open Sans', sans-serif; font-size: 0.95rem; font-weight: 600; color: #111; margin: 0; flex: 1; }
 .projectdescription { font-family: 'Open Sans', sans-serif; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
 .projectbtn {
@@ -504,15 +505,16 @@ section h2 {
 .seemore-btn:hover { color: #111; }
 
 .project-footer-bottom {display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;}
+.project-footer-bottom1 {display: flex; justify-content: flex-end; align-items: center; width: 100%; gap: 10px;}
 
 .projectcategory1 { margin: 0; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: -0.01em; text-transform: uppercase; color: #8a8a8a; white-space: nowrap; }
-
+.projectcategory2 { display: flex; margin: 0; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: -0.01em; text-transform: uppercase; color: #8a8a8a; white-space: nowrap; }
 
 
 
 #experience { padding: var(--section-pad); }
 #experience h2 { margin-bottom: 30px; text-align: center; }
-.expriencewrapper { display: flex; justify-content: center; }
+.expriencewrapper {display:grid; justify-content: center; gap: 20px;}
 .experiencecard { display: flex; align-items: flex-start; gap: 20px; background: #fff; border-radius: 14px; padding: 28px 32px; box-shadow: var(--card-shadow); width: 100%; max-width: 720px; flex-wrap: wrap; position: relative; overflow: hidden; }
 .experiencecard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent-purple); border-radius: 0; }
 .experiencelogo { width: 52px; height: 52px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0; border-radius: 10px; background: #f9fafb; padding: 8px; }
